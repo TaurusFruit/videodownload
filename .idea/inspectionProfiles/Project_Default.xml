@@ -13,6 +13,7 @@
         <list>
           <option value="scripts.down.monitor" />
           <option value="scripts.down.base" />
+          <option value="scripts.down.config_data" />
         </list>
       </option>
     </inspection_tool>

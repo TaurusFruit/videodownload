@@ -152,7 +152,7 @@ class AdbTool(object):
 							SaveLog(info_log)
 						elif self.log_level == 'debug':
 							SaveLog(debug_log, 3)
-						return url
+						return url.replace('127.0.0.1',self.device_ip)
 				else:
 					error_log = "[4] 解析视频地址失败 vid:%s url:%s" % (vid,url_data)
 					SaveLog(error_log,3)
