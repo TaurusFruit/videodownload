@@ -28,8 +28,10 @@ class AdbTool(object):
 
 	def demoCheck(self):
 		if len(os.popen("ps aux|grep 'adb logcat'|grep -v grep").read()) == 0:
-			SaveLog("adb logcat 未启动,正在启动 adb logcat",3)
+			SaveLog("[0] adb logcat 未启动,正在启动 adb logcat",3)
 			os.system("$nohup adb logcat -v time|grep 'play_url' >> %s &" % self.device_log_file)
+		else:
+			SaveLog("[0] adb locat 运行正常")
 
 
 	def getLastDeviceLog(self):
