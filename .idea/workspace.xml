@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cc05c5aa-f037-40a9-887f-8da55cd767e3" name="Default" comment="">
+    <list default="true" id="cc05c5aa-f037-40a9-887f-8da55cd767e3" name="Default" comment="更新bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/config/config.yml" afterPath="$PROJECT_DIR$/config/config.yml" />
+      <change beforePath="$PROJECT_DIR$/scripts/down.py" afterPath="$PROJECT_DIR$/scripts/down.py" />
     </list>
     <ignored path="videodownload.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,28 +42,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="down.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="down.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scripts/down.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="33" column="25" lean-forward="false" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
+            <state relative-caret-position="318">
+              <caret line="83" column="33" lean-forward="false" selection-start-line="83" selection-start-column="33" selection-end-line="83" selection-end-column="33" />
               <folding>
                 <element signature="e#39#48#0" expanded="true" />
-                <marker date="1520230582034" expanded="true" signature="3581:3617" ph="SELECT statu... video_info" />
-                <marker date="1520230582034" expanded="true" signature="3581:3618" ph="SELECT statu... video_info" />
-                <marker date="1520230582034" expanded="true" signature="3581:3620" ph="SELECT statu... video_info" />
-                <marker date="1520230582034" expanded="true" signature="4110:4173" ph="UPDATE video_info... " />
-                <marker date="1520230582034" expanded="true" signature="4367:4467" ph="INSERT INTO video_info... " />
-                <marker date="1520230582034" expanded="true" signature="5723:5769" ph="UPDATE video_info... " />
-                <marker date="1520230582034" expanded="true" signature="6232:6294" ph="UPDATE video_info... " />
-                <marker date="1520230582034" expanded="true" signature="6722:6771" ph="UPDATE video_info... " />
-                <marker date="1520230582034" expanded="true" signature="7388:7439" ph="UPDATE video_info... " />
-                <marker date="1520230582034" expanded="true" signature="7896:7947" ph="UPDATE video_info... " />
-                <marker date="1520230582034" expanded="true" signature="8276:8327" ph="UPDATE video_info... " />
-                <marker date="1520230582034" expanded="true" signature="10311:10361" ph="UPDATE video_info... " />
-                <marker date="1520230582034" expanded="true" signature="13163:13204" ph="SELECT * FRO... video_info" />
-                <marker date="1520230582034" expanded="true" signature="14077:14121" ph="UPDATE video_info... " />
-                <marker date="1520230582034" expanded="true" signature="14490:14604" ph="INSERT INTO video_info... " />
+                <marker date="1520231052673" expanded="true" signature="3610:3646" ph="SELECT statu... video_info" />
+                <marker date="1520231052673" expanded="true" signature="3610:3647" ph="SELECT statu... video_info" />
+                <marker date="1520231052673" expanded="true" signature="3610:3649" ph="SELECT statu... video_info" />
+                <marker date="1520231052673" expanded="true" signature="4139:4202" ph="UPDATE video_info... " />
+                <marker date="1520231052673" expanded="true" signature="4396:4496" ph="INSERT INTO video_info... " />
+                <marker date="1520231052673" expanded="true" signature="5752:5798" ph="UPDATE video_info... " />
+                <marker date="1520231052673" expanded="true" signature="6261:6323" ph="UPDATE video_info... " />
+                <marker date="1520231052673" expanded="true" signature="6751:6800" ph="UPDATE video_info... " />
+                <marker date="1520231052673" expanded="true" signature="7417:7468" ph="UPDATE video_info... " />
+                <marker date="1520231052673" expanded="true" signature="7925:7976" ph="UPDATE video_info... " />
+                <marker date="1520231052673" expanded="true" signature="8305:8356" ph="UPDATE video_info... " />
+                <marker date="1520231052673" expanded="true" signature="10340:10390" ph="UPDATE video_info... " />
+                <marker date="1520231052673" expanded="true" signature="13192:13233" ph="SELECT * FRO... video_info" />
+                <marker date="1520231052673" expanded="true" signature="14106:14150" ph="UPDATE video_info... " />
+                <marker date="1520231052673" expanded="true" signature="14519:14633" ph="INSERT INTO video_info... " />
               </folding>
             </state>
           </provider>
@@ -91,11 +91,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.yml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="config.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/config.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state relative-caret-position="195">
+              <caret line="13" column="7" lean-forward="false" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -129,8 +129,8 @@
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.py" />
         <option value="$PROJECT_DIR$/scripts/base.py" />
         <option value="$PROJECT_DIR$/run.sh" />
-        <option value="$PROJECT_DIR$/scripts/down.py" />
         <option value="$PROJECT_DIR$/config/config.yml" />
+        <option value="$PROJECT_DIR$/scripts/down.py" />
       </list>
     </option>
   </component>
@@ -482,14 +482,30 @@
       <option name="project" value="LOCAL" />
       <updated>1520230604854</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="更新bug">
+      <created>1520230697548</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1520230697548</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="4" y="22" width="1676" height="1028" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19846492" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3279743" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -498,6 +514,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15116279" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -507,7 +524,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -586,21 +602,21 @@
           <caret line="178" column="0" lean-forward="false" selection-start-line="178" selection-start-column="0" selection-end-line="178" selection-end-column="0" />
           <folding>
             <element signature="e#39#48#0" expanded="true" />
-            <marker date="1520230582034" expanded="true" signature="3581:3617" ph="SELECT statu... video_info" />
-            <marker date="1520230582034" expanded="true" signature="3581:3618" ph="SELECT statu... video_info" />
-            <marker date="1520230582034" expanded="true" signature="3581:3620" ph="SELECT statu... video_info" />
-            <marker date="1520230582034" expanded="true" signature="4110:4173" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="4367:4467" ph="INSERT INTO video_info... " />
-            <marker date="1520230582034" expanded="true" signature="5723:5769" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="6232:6294" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="6722:6771" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="7388:7439" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="7896:7947" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="8276:8327" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="10311:10361" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="13163:13204" ph="SELECT * FRO... video_info" />
-            <marker date="1520230582034" expanded="true" signature="14077:14121" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="14490:14604" ph="INSERT INTO video_info... " />
+            <marker date="1520231052673" expanded="true" signature="3610:3646" ph="SELECT statu... video_info" />
+            <marker date="1520231052673" expanded="true" signature="3610:3647" ph="SELECT statu... video_info" />
+            <marker date="1520231052673" expanded="true" signature="3610:3649" ph="SELECT statu... video_info" />
+            <marker date="1520231052673" expanded="true" signature="4139:4202" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="4396:4496" ph="INSERT INTO video_info... " />
+            <marker date="1520231052673" expanded="true" signature="5752:5798" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="6261:6323" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="6751:6800" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="7417:7468" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="7925:7976" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="8305:8356" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="10340:10390" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="13192:13233" ph="SELECT * FRO... video_info" />
+            <marker date="1520231052673" expanded="true" signature="14106:14150" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="14519:14633" ph="INSERT INTO video_info... " />
           </folding>
         </state>
       </provider>
@@ -637,21 +653,21 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#39#48#0" expanded="true" />
-            <marker date="1520230582034" expanded="true" signature="3581:3617" ph="SELECT statu... video_info" />
-            <marker date="1520230582034" expanded="true" signature="3581:3618" ph="SELECT statu... video_info" />
-            <marker date="1520230582034" expanded="true" signature="3581:3620" ph="SELECT statu... video_info" />
-            <marker date="1520230582034" expanded="true" signature="4110:4173" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="4367:4467" ph="INSERT INTO video_info... " />
-            <marker date="1520230582034" expanded="true" signature="5723:5769" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="6232:6294" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="6722:6771" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="7388:7439" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="7896:7947" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="8276:8327" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="10311:10361" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="13163:13204" ph="SELECT * FRO... video_info" />
-            <marker date="1520230582034" expanded="true" signature="14077:14121" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="14490:14604" ph="INSERT INTO video_info... " />
+            <marker date="1520231052673" expanded="true" signature="3610:3646" ph="SELECT statu... video_info" />
+            <marker date="1520231052673" expanded="true" signature="3610:3647" ph="SELECT statu... video_info" />
+            <marker date="1520231052673" expanded="true" signature="3610:3649" ph="SELECT statu... video_info" />
+            <marker date="1520231052673" expanded="true" signature="4139:4202" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="4396:4496" ph="INSERT INTO video_info... " />
+            <marker date="1520231052673" expanded="true" signature="5752:5798" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="6261:6323" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="6751:6800" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="7417:7468" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="7925:7976" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="8305:8356" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="10340:10390" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="13192:13233" ph="SELECT * FRO... video_info" />
+            <marker date="1520231052673" expanded="true" signature="14106:14150" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="14519:14633" ph="INSERT INTO video_info... " />
           </folding>
         </state>
       </provider>
@@ -690,21 +706,21 @@
           <caret line="178" column="0" lean-forward="false" selection-start-line="178" selection-start-column="0" selection-end-line="178" selection-end-column="0" />
           <folding>
             <element signature="e#39#48#0" expanded="true" />
-            <marker date="1520230582034" expanded="true" signature="3581:3617" ph="SELECT statu... video_info" />
-            <marker date="1520230582034" expanded="true" signature="3581:3618" ph="SELECT statu... video_info" />
-            <marker date="1520230582034" expanded="true" signature="3581:3620" ph="SELECT statu... video_info" />
-            <marker date="1520230582034" expanded="true" signature="4110:4173" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="4367:4467" ph="INSERT INTO video_info... " />
-            <marker date="1520230582034" expanded="true" signature="5723:5769" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="6232:6294" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="6722:6771" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="7388:7439" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="7896:7947" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="8276:8327" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="10311:10361" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="13163:13204" ph="SELECT * FRO... video_info" />
-            <marker date="1520230582034" expanded="true" signature="14077:14121" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="14490:14604" ph="INSERT INTO video_info... " />
+            <marker date="1520231052673" expanded="true" signature="3610:3646" ph="SELECT statu... video_info" />
+            <marker date="1520231052673" expanded="true" signature="3610:3647" ph="SELECT statu... video_info" />
+            <marker date="1520231052673" expanded="true" signature="3610:3649" ph="SELECT statu... video_info" />
+            <marker date="1520231052673" expanded="true" signature="4139:4202" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="4396:4496" ph="INSERT INTO video_info... " />
+            <marker date="1520231052673" expanded="true" signature="5752:5798" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="6261:6323" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="6751:6800" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="7417:7468" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="7925:7976" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="8305:8356" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="10340:10390" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="13192:13233" ph="SELECT * FRO... video_info" />
+            <marker date="1520231052673" expanded="true" signature="14106:14150" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="14519:14633" ph="INSERT INTO video_info... " />
           </folding>
         </state>
       </provider>
@@ -767,21 +783,21 @@
           <caret line="178" column="0" lean-forward="false" selection-start-line="178" selection-start-column="0" selection-end-line="178" selection-end-column="0" />
           <folding>
             <element signature="e#39#48#0" expanded="true" />
-            <marker date="1520230582034" expanded="true" signature="3581:3617" ph="SELECT statu... video_info" />
-            <marker date="1520230582034" expanded="true" signature="3581:3618" ph="SELECT statu... video_info" />
-            <marker date="1520230582034" expanded="true" signature="3581:3620" ph="SELECT statu... video_info" />
-            <marker date="1520230582034" expanded="true" signature="4110:4173" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="4367:4467" ph="INSERT INTO video_info... " />
-            <marker date="1520230582034" expanded="true" signature="5723:5769" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="6232:6294" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="6722:6771" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="7388:7439" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="7896:7947" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="8276:8327" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="10311:10361" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="13163:13204" ph="SELECT * FRO... video_info" />
-            <marker date="1520230582034" expanded="true" signature="14077:14121" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="14490:14604" ph="INSERT INTO video_info... " />
+            <marker date="1520231052673" expanded="true" signature="3610:3646" ph="SELECT statu... video_info" />
+            <marker date="1520231052673" expanded="true" signature="3610:3647" ph="SELECT statu... video_info" />
+            <marker date="1520231052673" expanded="true" signature="3610:3649" ph="SELECT statu... video_info" />
+            <marker date="1520231052673" expanded="true" signature="4139:4202" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="4396:4496" ph="INSERT INTO video_info... " />
+            <marker date="1520231052673" expanded="true" signature="5752:5798" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="6261:6323" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="6751:6800" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="7417:7468" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="7925:7976" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="8305:8356" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="10340:10390" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="13192:13233" ph="SELECT * FRO... video_info" />
+            <marker date="1520231052673" expanded="true" signature="14106:14150" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="14519:14633" ph="INSERT INTO video_info... " />
           </folding>
         </state>
       </provider>
@@ -828,21 +844,21 @@
           <caret line="178" column="0" lean-forward="false" selection-start-line="178" selection-start-column="0" selection-end-line="178" selection-end-column="0" />
           <folding>
             <element signature="e#39#48#0" expanded="true" />
-            <marker date="1520230582034" expanded="true" signature="3581:3617" ph="SELECT statu... video_info" />
-            <marker date="1520230582034" expanded="true" signature="3581:3618" ph="SELECT statu... video_info" />
-            <marker date="1520230582034" expanded="true" signature="3581:3620" ph="SELECT statu... video_info" />
-            <marker date="1520230582034" expanded="true" signature="4110:4173" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="4367:4467" ph="INSERT INTO video_info... " />
-            <marker date="1520230582034" expanded="true" signature="5723:5769" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="6232:6294" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="6722:6771" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="7388:7439" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="7896:7947" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="8276:8327" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="10311:10361" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="13163:13204" ph="SELECT * FRO... video_info" />
-            <marker date="1520230582034" expanded="true" signature="14077:14121" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="14490:14604" ph="INSERT INTO video_info... " />
+            <marker date="1520231052673" expanded="true" signature="3610:3646" ph="SELECT statu... video_info" />
+            <marker date="1520231052673" expanded="true" signature="3610:3647" ph="SELECT statu... video_info" />
+            <marker date="1520231052673" expanded="true" signature="3610:3649" ph="SELECT statu... video_info" />
+            <marker date="1520231052673" expanded="true" signature="4139:4202" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="4396:4496" ph="INSERT INTO video_info... " />
+            <marker date="1520231052673" expanded="true" signature="5752:5798" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="6261:6323" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="6751:6800" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="7417:7468" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="7925:7976" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="8305:8356" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="10340:10390" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="13192:13233" ph="SELECT * FRO... video_info" />
+            <marker date="1520231052673" expanded="true" signature="14106:14150" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="14519:14633" ph="INSERT INTO video_info... " />
           </folding>
         </state>
       </provider>
@@ -889,21 +905,21 @@
           <caret line="178" column="0" lean-forward="false" selection-start-line="178" selection-start-column="0" selection-end-line="178" selection-end-column="0" />
           <folding>
             <element signature="e#39#48#0" expanded="true" />
-            <marker date="1520230582034" expanded="true" signature="3581:3617" ph="SELECT statu... video_info" />
-            <marker date="1520230582034" expanded="true" signature="3581:3618" ph="SELECT statu... video_info" />
-            <marker date="1520230582034" expanded="true" signature="3581:3620" ph="SELECT statu... video_info" />
-            <marker date="1520230582034" expanded="true" signature="4110:4173" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="4367:4467" ph="INSERT INTO video_info... " />
-            <marker date="1520230582034" expanded="true" signature="5723:5769" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="6232:6294" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="6722:6771" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="7388:7439" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="7896:7947" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="8276:8327" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="10311:10361" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="13163:13204" ph="SELECT * FRO... video_info" />
-            <marker date="1520230582034" expanded="true" signature="14077:14121" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="14490:14604" ph="INSERT INTO video_info... " />
+            <marker date="1520231052673" expanded="true" signature="3610:3646" ph="SELECT statu... video_info" />
+            <marker date="1520231052673" expanded="true" signature="3610:3647" ph="SELECT statu... video_info" />
+            <marker date="1520231052673" expanded="true" signature="3610:3649" ph="SELECT statu... video_info" />
+            <marker date="1520231052673" expanded="true" signature="4139:4202" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="4396:4496" ph="INSERT INTO video_info... " />
+            <marker date="1520231052673" expanded="true" signature="5752:5798" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="6261:6323" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="6751:6800" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="7417:7468" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="7925:7976" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="8305:8356" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="10340:10390" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="13192:13233" ph="SELECT * FRO... video_info" />
+            <marker date="1520231052673" expanded="true" signature="14106:14150" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="14519:14633" ph="INSERT INTO video_info... " />
           </folding>
         </state>
       </provider>
@@ -950,21 +966,21 @@
           <caret line="178" column="0" lean-forward="false" selection-start-line="178" selection-start-column="0" selection-end-line="178" selection-end-column="0" />
           <folding>
             <element signature="e#39#48#0" expanded="true" />
-            <marker date="1520230582034" expanded="true" signature="3581:3617" ph="SELECT statu... video_info" />
-            <marker date="1520230582034" expanded="true" signature="3581:3618" ph="SELECT statu... video_info" />
-            <marker date="1520230582034" expanded="true" signature="3581:3620" ph="SELECT statu... video_info" />
-            <marker date="1520230582034" expanded="true" signature="4110:4173" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="4367:4467" ph="INSERT INTO video_info... " />
-            <marker date="1520230582034" expanded="true" signature="5723:5769" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="6232:6294" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="6722:6771" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="7388:7439" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="7896:7947" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="8276:8327" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="10311:10361" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="13163:13204" ph="SELECT * FRO... video_info" />
-            <marker date="1520230582034" expanded="true" signature="14077:14121" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="14490:14604" ph="INSERT INTO video_info... " />
+            <marker date="1520231052673" expanded="true" signature="3610:3646" ph="SELECT statu... video_info" />
+            <marker date="1520231052673" expanded="true" signature="3610:3647" ph="SELECT statu... video_info" />
+            <marker date="1520231052673" expanded="true" signature="3610:3649" ph="SELECT statu... video_info" />
+            <marker date="1520231052673" expanded="true" signature="4139:4202" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="4396:4496" ph="INSERT INTO video_info... " />
+            <marker date="1520231052673" expanded="true" signature="5752:5798" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="6261:6323" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="6751:6800" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="7417:7468" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="7925:7976" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="8305:8356" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="10340:10390" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="13192:13233" ph="SELECT * FRO... video_info" />
+            <marker date="1520231052673" expanded="true" signature="14106:14150" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="14519:14633" ph="INSERT INTO video_info... " />
           </folding>
         </state>
       </provider>
@@ -1001,21 +1017,21 @@
           <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding>
             <element signature="e#39#48#0" expanded="true" />
-            <marker date="1520230582034" expanded="true" signature="3581:3617" ph="SELECT statu... video_info" />
-            <marker date="1520230582034" expanded="true" signature="3581:3618" ph="SELECT statu... video_info" />
-            <marker date="1520230582034" expanded="true" signature="3581:3620" ph="SELECT statu... video_info" />
-            <marker date="1520230582034" expanded="true" signature="4110:4173" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="4367:4467" ph="INSERT INTO video_info... " />
-            <marker date="1520230582034" expanded="true" signature="5723:5769" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="6232:6294" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="6722:6771" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="7388:7439" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="7896:7947" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="8276:8327" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="10311:10361" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="13163:13204" ph="SELECT * FRO... video_info" />
-            <marker date="1520230582034" expanded="true" signature="14077:14121" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="14490:14604" ph="INSERT INTO video_info... " />
+            <marker date="1520231052673" expanded="true" signature="3610:3646" ph="SELECT statu... video_info" />
+            <marker date="1520231052673" expanded="true" signature="3610:3647" ph="SELECT statu... video_info" />
+            <marker date="1520231052673" expanded="true" signature="3610:3649" ph="SELECT statu... video_info" />
+            <marker date="1520231052673" expanded="true" signature="4139:4202" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="4396:4496" ph="INSERT INTO video_info... " />
+            <marker date="1520231052673" expanded="true" signature="5752:5798" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="6261:6323" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="6751:6800" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="7417:7468" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="7925:7976" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="8305:8356" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="10340:10390" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="13192:13233" ph="SELECT * FRO... video_info" />
+            <marker date="1520231052673" expanded="true" signature="14106:14150" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="14519:14633" ph="INSERT INTO video_info... " />
           </folding>
         </state>
       </provider>
@@ -1054,14 +1070,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/run.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="24" column="24" lean-forward="false" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/base.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="765">
@@ -1072,36 +1080,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/down.py">
+    <entry file="file://$PROJECT_DIR$/run.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="25" lean-forward="false" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
-          <folding>
-            <element signature="e#39#48#0" expanded="true" />
-            <marker date="1520230582034" expanded="true" signature="3581:3617" ph="SELECT statu... video_info" />
-            <marker date="1520230582034" expanded="true" signature="3581:3618" ph="SELECT statu... video_info" />
-            <marker date="1520230582034" expanded="true" signature="3581:3620" ph="SELECT statu... video_info" />
-            <marker date="1520230582034" expanded="true" signature="4110:4173" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="4367:4467" ph="INSERT INTO video_info... " />
-            <marker date="1520230582034" expanded="true" signature="5723:5769" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="6232:6294" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="6722:6771" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="7388:7439" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="7896:7947" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="8276:8327" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="10311:10361" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="13163:13204" ph="SELECT * FRO... video_info" />
-            <marker date="1520230582034" expanded="true" signature="14077:14121" ph="UPDATE video_info... " />
-            <marker date="1520230582034" expanded="true" signature="14490:14604" ph="INSERT INTO video_info... " />
-          </folding>
+        <state relative-caret-position="241">
+          <caret line="24" column="24" lean-forward="false" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="53" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/config.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        <state relative-caret-position="195">
+          <caret line="13" column="7" lean-forward="false" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="41" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/down.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="83" column="33" lean-forward="false" selection-start-line="83" selection-start-column="33" selection-end-line="83" selection-end-column="33" />
+          <folding>
+            <element signature="e#39#48#0" expanded="true" />
+            <marker date="1520231052673" expanded="true" signature="3610:3646" ph="SELECT statu... video_info" />
+            <marker date="1520231052673" expanded="true" signature="3610:3647" ph="SELECT statu... video_info" />
+            <marker date="1520231052673" expanded="true" signature="3610:3649" ph="SELECT statu... video_info" />
+            <marker date="1520231052673" expanded="true" signature="4139:4202" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="4396:4496" ph="INSERT INTO video_info... " />
+            <marker date="1520231052673" expanded="true" signature="5752:5798" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="6261:6323" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="6751:6800" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="7417:7468" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="7925:7976" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="8305:8356" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="10340:10390" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="13192:13233" ph="SELECT * FRO... video_info" />
+            <marker date="1520231052673" expanded="true" signature="14106:14150" ph="UPDATE video_info... " />
+            <marker date="1520231052673" expanded="true" signature="14519:14633" ph="INSERT INTO video_info... " />
+          </folding>
         </state>
       </provider>
     </entry>
