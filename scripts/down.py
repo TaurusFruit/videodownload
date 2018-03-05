@@ -169,7 +169,7 @@ class AdbTool(object):
 		video_data = self.video_last_data
 		download_url = self.getDownloadUrl(video_data['url'],video_data['vid'])			# 获取解析后的下载地址
 		if not download_url:															# 如果解析地址失败，更新数据库状态，返回False
-			update_sql = "UPDATE video_info SET status='4' WHERE vid='%'" % (video_data['vid'])
+			update_sql = "UPDATE video_info SET status='4' WHERE vid=%" % (video_data['vid'])
 			print(update_sql)
 			DB(update_sql,'insert')
 			return False
