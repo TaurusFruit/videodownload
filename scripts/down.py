@@ -155,7 +155,7 @@ class AdbTool(object):
 				error_log = "[4] 解析视频地址出错 vid:%s url:%s" % (vid, url_data)
 				SaveLog(error_log,3)
 			retry_times += 1
-			if retry_times < 5
+			if retry_times < 5:
 				SaveLog("第%s 重试" % str(retry_times))
 			time.sleep(5)
 		return False
