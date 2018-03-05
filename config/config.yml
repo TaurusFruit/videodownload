@@ -29,6 +29,7 @@ image:
 
 log:
   root: /Data/webapps/video_log
+  ffmpeg: /Data/webapps/video_log/ffmpeg_log
 
 monitor:
   mail: zhanglei@tansuotv.com

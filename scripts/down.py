@@ -18,28 +18,22 @@ class AdbTool(object):
 		self.contact = config_data['monitor']['mail']					#联系人
 		self.log_level = config_data['global']['log_level']
 		self.img_dir_path = config_data['image']['root']				#图片目录路径
+		self.ffmpeg_log_path = config_data['log']['ffmpeg']
 		self.video_last_data = self.getLastDeviceLog()
 
 	def demoStart(self):
 		os.system("adb shell am start -n com.demo.wl.jumpdemonew/com.demo.wl.jumpdemonew.MainActivity")
+		os.system("timeout 5 adb logcat -v time|grep 'play_url' > %s " % self.device_log_file)
+
 
 	def demoShutdown(self):
 		os.system("adb shell am force-stop com.demo.wl.jumpdemonew")
-
-	def demoCheck(self):
-		if len(os.popen("ps aux|grep 'adb logcat'|grep -v grep").read()) == 0:
-			SaveLog("[0] adb logcat 未启动,正在启动 adb logcat",3)
-			os.system("$nohup adb logcat -v time|grep 'play_url' >> %s &" % self.device_log_file)
-		else:
-			SaveLog("[0] adb locat 运行正常")
-
 
 	def getLastDeviceLog(self):
 		'''
 		获取最后一条有效日志
 		:return:
 		'''
-		self.demoCheck()
 		self.demoStart()  # 启动demo程序
 		try:
 			device_log_data = FileHandle(self.device_log_file,type='r')[-10:]				# 获取最后10条日志记录
@@ -81,7 +75,6 @@ class AdbTool(object):
 			SaveLog(err,2)
 			return False
 		server_current_data = getServerData()		# 获取服务器下发视频信息
-		print(server_current_data)
 		if log_current_data['aid'] == server_current_data['aid'] and log_current_data['sid'] == server_current_data['sid']:	# 判断信息是否匹配
 			info_log = "[2] 日志/服务器 视频信息匹配正确"
 			debug_log = info_log + " %s" % str(server_current_data)
@@ -138,8 +131,9 @@ class AdbTool(object):
 		:param base_url:
 		:return:
 		'''
+		print(url_data)
 		try:
-			html_res = requests.get(url_data['url'], timeout=10)
+			html_res = requests.get(url_data, timeout=10)
 			html_res = html_res.text.split()
 			for each in html_res:
 				if each.startswith("http://"):
@@ -161,16 +155,18 @@ class AdbTool(object):
 			return False
 
 
+
+
 	def runDownload(self):
 		if not self.matchCurrentVideoData():					# 判断日志与服务器是否匹配
 			return False
 		if not self.checkVideoStatus():							# 判断是否有新视频需要下载
 			return False
 		video_data = self.video_last_data
+		print(video_data)
 		download_url = self.getDownloadUrl(video_data['url'],video_data['vid'])			# 获取解析后的下载地址
 		if not download_url:															# 如果解析地址失败，更新数据库状态，返回False
-			update_sql = "UPDATE video_info SET status='4' WHERE vid=%" % (video_data['vid'])
-			print(update_sql)
+			update_sql = "UPDATE video_info SET status='4' WHERE vid=%s" % (video_data['vid'])
 			DB(update_sql,'insert')
 			return False
 
@@ -195,7 +191,7 @@ class AdbTool(object):
 		DB(sql,'insert')
 		info_log = "[5] 开始进入下载 vid : %s" % vid
 
-		ffmpeg_log_name = self.script_path + "/ffmpeg_log/" + name + ".log"			# 当前下载日志
+		ffmpeg_log_name = self.ffmpeg_log_path +"/" + name + ".log"			# 当前下载日志
 		cmd = "ffmpeg -i '%s' -absf aac_adtstoasc -acodec copy -vcodec copy -f mp4 %s > %s 2>&1" % (url, save_name, ffmpeg_log_name)
 		post_data = {'aid': aid, 'sid': sid, 'path': path, 'name': '%s/%s' % (path, name), 'status': '1'}
 		PostData(post_data)
@@ -313,274 +309,4 @@ if __name__ == '__main__':
 		adbtool.runDownload()
 		adbtool.demoShutdown()
 		time.sleep(10)
-
-
-
-
-
-
-
-
-
-
-
-
-
-	# def basicLog(self,log_data):
-	# 	'''
-	# 	正常日志分析
-	# 	:return: 解析成功返回 {aid,sid,url,vid}
-	# 	'''
-    #
-    #
-	# 	url_compile = re.compile(r'^\d+.+?D/VooleEpg2.+AdPlayer.+\[CDATA\[(?P<url>http://.+aid\":\"(?P<aid>\w+)\".+\"sid\":\"(?P<sid>\w+).+proto=5&up=\'ua=\w+&ub=\w+&ud=\w+&ug=\w+\')\]\].+$')
-	# 	video_data = url_compile(log_data)
-    #
-	# 	if video_data:
-	# 		video_data = video_data.groupdict()
-	# 		url = video_data['url'].replace('127.0.0.1',self.device_ip)
-	# 		sid = video_data['sid']
-	# 		aid = video_data['aid']
-	# 		vid = aid+sid
-	# 		return {'aid':aid,'sid':sid,'url':url,'vid':vid}
-	# 	else:
-	# 		err = "视频地址解析失败:%s" % log_data
-	# 		SaveLog(err,2)
-	# 		sendMail(self.contact,err)
-	# 	return False
-    #
-	# @property
-	# def getApiLasttime(self):
-	# 	'''
-	# 	获取请求时间差
-	# 	:return:
-	# 	'''
-	# 	url = config_data['global']['server_lasttime_url']
-	# 	try:
-	# 		res_time = requests.get(url).text
-	# 		t = time.strptime(res_time,"%Y-%m-%d %H:%M:%S")
-	# 		t1 = datetime.datetime(*t[:6])
-	# 		t2 = datetime.datetime.now()
-	# 		time_interval= int((t2-t1).seconds)
-	# 		return time_interval
-	# 	except:
-	# 		err = "获取API请求时间失败"
-	# 		SaveLog(err,2)
-	# 		sendMail(self.contact,err)
-	# 	return False
-    #
-	# def postDownloadErr(self):
-	# 	"""
-	# 	返回当前
-	# 	:return:
-	# 	"""
-
-	# def analysisLog(self):
-	# 	'''
-	# 	分析日志方法
-	# 	:return:
-	# 	'''
-    #
-	# 	device_last_log = self.getLastDeviceLog()
-	# 	if not device_last_log:
-	# 		return False
-    #
-	# 	#正常日志
-	# 	if "vodfile.m1905" not in device_last_log:      # 非 1905 日志
-	# 		video_data = self.basicLog(device_last_log) # 分析日志参数 返回 aid sid url vid
-	# 		if not video_data:
-	# 			return False
-    #
-	# 		server_data = self.getServerData()          # 获取当前api接口aid sid
-	# 		if not server_data:
-	# 			return False
-    #
-	# 		if len(server_data) == 0:                   # 判断接口是否为空
-	# 			time_interval = self.getApiLasttime  # 获取最后获取接口数据时间
-	# 			if not time_interval:
-	# 				return False
-	# 			if time_interval > 1200:                # 判断最后获取接口时间 时间差是否大于1200
-	# 				self.xiaokRestart()                 # 重启小K
-	# 				err = "API 接口 %s 秒没收到请求,重启小K" % time_interval
-	# 				SaveLog(err)
-	# 				sendMail(self.contact,err)
-	# 				return False
-    #
-	# 		if video_data['aid'] == server_data['aid'] and video_data['sid'] == server_data['sid']:     # 判断api接口数据跟日志是否一致
-	# 			sql = "SELECT * FROM video_info WHERE vid = '%s'" % video_data['vid']                   # 查询当前日志vid 是否存在
-	# 			sql_res = DB(sql)
-	# 			if sql_res:                                                                             # 如果存在返回API 下载完成
-	# 				if sql_res[0]['status'] == '2' or sql_res[0]['status'] == '3' or sql_res[0]['status'] == '6' or sql_res[0]['status'] == '7':                                                     # 判断存储status值,如果是2 返回下载完成
-	# 					post_data = {
-	# 						'aid':sql_res[0]['aid'],
-	# 						'sud':sql_res[0]['sid'],
-	# 						'path':sql_res[0]['path'],
-	# 						'name':sql_res[0]['name'],
-	# 						'status':2
-	# 					}
-	# 					PostData(post_data)
-	# 					err = "sid:%s aid:%s 重复下载,返回下载完成" % (sql_res[0]['aid'],sql_res[0]['sid'])
-	# 					SaveLog(err,2)
-	# 					return True
-	# 				elif sql_res[0]['status'] == '4' or sql_res[0]['status']  == '5':                   # 如果状态标记为下载失败,更新记录值
-	# 					sql = "UPDATE video_info SET status = '1' ,url='%s'" % video_data['url']
-	# 					DB(sql,'insert')                                                                # 更新数据库
-	# 					err = "sid:%s aid:%s 更新数据状态,等待重新下载" % (sql_res[0]['aid'],sql_res[0]['sid'])
-	# 					SaveLog(err,2)
-	# 					return True
-	# 			else:                                                                                   # 如果数据不存在,更新数据库
-	# 				sql = "INSERT INTO video_info(vid,path,status,name,aid,sid,url) VALUES " \
-	# 						"('%s','%s','%s','%s','%s','%s','%s')" % (video_data['vid'],'null','1','null',video_data['aid'], video_data['sid'],video_data['url'])
-	# 				DB(sql,'insert')
-	# 				return True
-	# 		else:                                                                                       # api接口 与 日志 数据不一致,重启小K
-	# 			self.xiaokRestart()
-	# 			err = "API 接口正常, 未记录日志,重启小K"
-	# 			SaveLog(err)
-	# 			sendMail(self.contact,err)
-	# 			return False
-	# 	else:
-
-
-
-
-	# def LogAnalysis(self):
-	# 	'''
-	# 	分析日志
-	# 	:return:
-	# 	'''
-	# 	try:
-	# 		#取出最后一条日志记录 device_last_log
-	# 		device_log_list = FileHandle(self.device_log,type="r")
-	# 		device_log_list = device_log_list[-20:]
-	# 		for each_log in device_log_list:
-	# 			if "VOOLEAUTH" not in device_log_list:
-	# 				continue
-	# 			device_last_log = each_log
-	# 	except:
-	# 		err = "Open device log failed:%s" % self.device_log
-	# 		SaveLog(err,2)
-	# 		sendMail(self.contact,err)
-	# 		return False
-	# 	#正常日志
-	# 	if "vodfile.m1905" not in device_last_log:
-	# 		#补足完整url地址
-	# 		if "&proto=5" not in device_last_log:
-	# 			tmp_log = device_last_log.split("&")
-	# 			try:
-	# 				if 'm3u8' in tmp_log[-2]:
-	# 					tmp_log[-1] = "proto=5"
-	# 					device_last_log = "&".join(tmp_log)
-	# 			except:
-	# 				pass
-	# 		#匹配出关键词
-	# 		url_compile = re.compile('.*VOOLEAUTH.*?(?P<url>http://.*"aid":"(?P<aid>\\w+).*"sid":"(?P<sid>\\w+)",.*proto=5).*')
-	# 		video_data = url_compile(device_last_log)
-	# 		#地址解析成功
-	# 		if video_data:
-	# 			video_data = video_data.groupdict()
-	# 			url = video_data['url'].replace('127.0.0.1',self.device_ip)
-	# 			sid = video_data['sid']
-	# 			aid = video_data['aid']
-	# 			vid = aid+sid
-	#
-	#
-	# 			#查询vid是否存在
-	# 			sql = "SELECT * FROM video_info WHERE vid = '%s'" % vid
-	# 			res = DB(sql)
-	# 			#如果存在 判断视频状态,如果是2 返回接口视频下载成功,如果是4,更新数据库状态为9 重新下载
-	# 			if res:
-	# 				video_status = res[0]['status']
-	# 				if video_status == '2':
-	# 					path = res[0]['path']
-	# 					name = res[0]['name']
-	# 					post_data = {'aid':aid,'sid':sid,'path':path,'name':'%s/%s'%(path,name),'status':'2'}
-	# 					PostData(post_data)
-	# 				elif video_status == '4':
-	# 					sql = "UPDATE video_info SET status = '1' , url = '%s' ,name = 'null' , path = 'null' WHERE vid = '%s'" % (url,vid)
-	# 					if DB(sql,'insert'):
-	# 						SaveLog("ID: %s , 更新视频状态成功" % vid)
-	# 					else:
-	# 						SaveLog("ID: %s , 更新视频状态成功" % vid)
-	# 			#如果不存在,新增数据状态为9,等等下载
-	# 			else:
-	# 				sql = "INSERT INTO video_info(vid,path,status,name,aid,sid,url) VALUES " \
-	# 					"('%s','%s','%s','%s','%s','%s','%s')" % (vid,'null','1','null',vid,sid,url)
-	# 				if DB(sql,'insert'):
-	# 					SaveLog("ID: %s , 新增视频下载信息成功" % vid)
-	# 				else:
-	# 					SaveLog("ID: %s , 新增视频下载信息失败" % vid)
-	# 			return True
-	# 		#解析地址失败
-	# 		else:
-	# 			err = "视频地址解析失败,记录值:%s" % device_last_log
-	# 			SaveLog(err)
-	# 			sendMail(self.contact,err)
-	# 			return False
-	# 	#如果是1905地址
-	# 	else:
-	# 		current_download_data = GetDownloadData()
-	# 		try:
-	# 			aid = current_download_data[0]['aid']
-	# 			sid = current_download_data[0]['sid']
-	# 			vid = aid+sid
-	# 			post_data = {'aid':aid,'sid':sid,'path':'null','name':'null','status':'4'}
-	# 			PostData(post_data)
-	# 			sql = "INSERT INTO video_info(vid,path,status,name,aid,sid,url) VALUES " \
-	# 				"('%s','%s','%s','%s','%s','%s','%s')" % (vid,'null','1','null',vid,sid,device_last_log)
-	# 			DB(sql,'insert')
-	# 		except:
-	# 			pass
-	# 		err = "1905 地址视频 返回下载错误 aid:%s sid:%s" % (aid,sid)
-	# 		SaveLog(err,2)
-	# 		sendMail(self.contact,err)
-	# 		return False
-	#
-	#
-	# def RunDownload(self):
-	# 	'''
-	# 	执行下载
-	# 	:return:
-	# 	'''
-	# 	self.LogAnalysis()
-	#
-	# 	#获取下载列表
-	# 	video_download_list = {}
-	# 	sql = "SELECT * FROM video_info WHERE status = '1'"
-	# 	video_data = DB(sql)
-	#
-	# 	for item in video_data:
-	# 		video_download_list.setdefault(item['vid'],{'aid':item['aid'],'sid':item['sid'],
-	# 		                                        'name':item['name'],'path':item['path'],
-	# 		                                        'status':item['status'],'url':item['url']})
-	# 	#判断下载列表是否为空,如果为空,检查
-	# 	if len(video_download_list) == 0:
-	# 		current_download_data = GetDownloadData()
-	# 		if len(current_download_data) > 0:
-	# 			aid = current_download_data[0]['aid']
-	# 			sid = current_download_data[0]['sid']
-	# 			vid = aid+sid
-	# 			sql = "SELECT * FROM video_info WHERE vid='%s'" % vid
-	# 			db_res = DB(sql)
-	# 			#查询数据库,如果vid存在,返回vid状态,如果不存在,返回下载错误
-	# 			if len(db_res) > 0:
-	# 				path = db_res[0]['path']
-	# 				name = db_res[0]['name']
-	# 				if db_res[0]['status'] != '2':
-	# 					post_data = {'aid':aid,'sid':sid,'path':path,'name':name,'status':'0'}
-	# 				else:
-	# 					post_data = {'aid':aid,'sid':sid,'path':path,'name':name,'status':'2'}
-	# 				PostData(post_data)
-	# 			else:
-	# 				post_data = {'aid':aid,'sid':sid,'path':'null','name':'null','status':'0'}
-	# 				PostData(post_data)
-	# 				err = "下载列表为空,下载队列未记录日志,返回下载失败 aid:%s sid:%s" % (aid,sid)
-	# 				SaveLog(err)
-	# 				sendMail(self.contact,err)
-
-
-
-
-
-
 
