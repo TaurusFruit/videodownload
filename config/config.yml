@@ -11,7 +11,7 @@ device:
   #设备IP
   ip: 10.20.40.214
   #设备日志位置
-  log: /Data/webapps/vide_log/device.log
+  log: /Data/webapps/video_log/device.log
 
 #数据库信息
 db:
