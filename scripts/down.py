@@ -113,7 +113,7 @@ class AdbTool(object):
 				self.demoShutdown()								# 返回下载成功后关闭 demo程序
 				return False
 			else:													# 如果状态不为2 ，删除对应下载记录
-				update_sql = "UPDATE video_info SET status = '1' WHERE vid = '%s' " % (url,vid)
+				update_sql = "UPDATE video_info SET status = '1' WHERE vid = '%s' " % (vid)
 				DB(update_sql,'insert')
 				info_log = "[3] 检查到新视频信息，更新下载失败记录状态为 1  vid: %s " % vid
 				SaveLog(info_log)
