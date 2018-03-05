@@ -133,7 +133,7 @@ class AdbTool(object):
 		'''
 		print(url_data)
 		retry_times = 0
-		while retry_times < 5 :	# 重试次数
+		while retry_times <= 5 :	# 重试次数
 			try:
 				html_res = requests.get(url_data, timeout=10)
 				html_res = html_res.text.split()
@@ -155,7 +155,9 @@ class AdbTool(object):
 				error_log = "[4] 解析视频地址出错 vid:%s url:%s" % (vid, url_data)
 				SaveLog(error_log,3)
 			retry_times += 1
-			SaveLog("第%s 重试" % str(retry_times))
+			if retry_times < 5
+				SaveLog("第%s 重试" % str(retry_times))
+			time.sleep(5)
 		return False
 
 
