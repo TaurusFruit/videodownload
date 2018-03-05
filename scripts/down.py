@@ -113,7 +113,7 @@ class AdbTool(object):
 				self.demoShutdown()								# 返回下载成功后关闭 demo程序
 				return False
 			else:													# 如果状态不为2 ，删除对应下载记录
-				update_sql = "UPDATE video_info SET status = '1', url = '%s' WHERE vid = '%s' " % (url,vid)
+				update_sql = "UPDATE video_info SET status = '1' WHERE vid = '%s' " % (url,vid)
 				DB(update_sql,'insert')
 				info_log = "[3] 检查到新视频信息，更新下载失败记录状态为 1  vid: %s " % vid
 				SaveLog(info_log)
@@ -209,7 +209,7 @@ class AdbTool(object):
 		info_log = "[5] 开始进入下载 vid : %s" % vid
 		SaveLog(info_log)
 		ffmpeg_log_name = self.ffmpeg_log_path +"/" + name + ".log"			# 当前下载日志
-		cmd = "ffmpeg -i '%s' -absf aac_adtstoasc -acodec copy -vcodec copy -f mp4 %s > %s 2>&1" % (url, save_name, ffmpeg_log_name)
+		cmd = 'ffmpeg -i "%s" -absf aac_adtstoasc -acodec copy -vcodec copy -f mp4 "%s" > %s 2>&1' % (url, save_name, ffmpeg_log_name)
 		post_data = {'aid': aid, 'sid': sid, 'path': path, 'name': '%s/%s' % (path, name), 'status': '1'}
 		PostData(post_data)
 		cmd_status = os.system(cmd)
