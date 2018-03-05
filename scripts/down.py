@@ -18,7 +18,6 @@ class AdbTool(object):
 		self.contact = config_data['monitor']['mail']					#联系人
 		self.log_level = config_data['global']['log_level']
 		self.img_dir_path = config_data['image']['root']				#图片目录路径
-		self.demoStart()												#启动demo程序
 		self.video_last_data = self.getLastDeviceLog()
 
 	def demoStart(self):
@@ -27,11 +26,19 @@ class AdbTool(object):
 	def demoShutdown(self):
 		os.system("adb shell am force-stop com.demo.wl.jumpdemonew")
 
+	def demoCheck(self):
+		if len(os.popen("ps aux|grep 'adb logcat'|grep -v grep").read()) == 0:
+			SaveLog("adb logcat 未启动,正在启动 adb logcat",3)
+			os.system("$nohup adb logcat -v time|grep 'play_url' >> %s &" % self.device_log_file)
+
+
 	def getLastDeviceLog(self):
 		'''
 		获取最后一条有效日志
 		:return:
 		'''
+		self.demoCheck()
+		self.demoStart()  # 启动demo程序
 		try:
 			device_log_data = FileHandle(self.device_log_file,type='r')[-10:]				# 获取最后10条日志记录
 			device_last_log = {}															# 最后一条可用日志数据 {'aid':111,'sid':1111,'url':'http:xxxx'}
@@ -292,8 +299,15 @@ class AdbTool(object):
 			return False
 
 if __name__ == '__main__':
-	adbtool = AdbTool()
-	adbtool.runDownload()
+	pid = str(os.getpid())
+	with open(config_data['global']['pid'],'w') as f:
+		f.write(pid)
+
+
+	while 1:
+		adbtool = AdbTool()
+		adbtool.runDownload()
+		time.sleep('10')
 
 
 
