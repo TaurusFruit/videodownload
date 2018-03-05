@@ -132,27 +132,31 @@ class AdbTool(object):
 		:return:
 		'''
 		print(url_data)
-		try:
-			html_res = requests.get(url_data, timeout=10)
-			html_res = html_res.text.split()
-			for each in html_res:
-				if each.startswith("http://"):
-					url = each
-					info_log = "[4] 解析下载地址成功，vid:%s" % vid
-					debug_log = info_log + " 解析地址为: %s" % url
-					if self.log_level == 'info':
-						SaveLog(info_log)
-					elif self.log_level == 'debug':
-						SaveLog(debug_log, 3)
-					return url
-			else:
-				error_log = "[4] 解析视频地址失败 vid:%s url:%s" % (vid,url_data)
+		retry_times = 0
+		while retry_times < 5 :	# 重试次数
+			try:
+				html_res = requests.get(url_data, timeout=10)
+				html_res = html_res.text.split()
+				for each in html_res:
+					if each.startswith("http://"):
+						url = each
+						info_log = "[4] 解析下载地址成功，vid:%s" % vid
+						debug_log = info_log + " 解析地址为: %s" % url
+						if self.log_level == 'info':
+							SaveLog(info_log)
+						elif self.log_level == 'debug':
+							SaveLog(debug_log, 3)
+						return url
+				else:
+					error_log = "[4] 解析视频地址失败 vid:%s url:%s" % (vid,url_data)
+					SaveLog(error_log,3)
+					return False
+			except:
+				error_log = "[4] 解析视频地址出错 vid:%s url:%s" % (vid, url_data)
 				SaveLog(error_log,3)
-				return False
-		except:
-			error_log = "[4] 解析视频地址出错 vid:%s url:%s" % (vid, url_data)
-			SaveLog(error_log,3)
-			return False
+			retry_times += 1
+			SaveLog("第%s 重试" % str(retry_times))
+		return False
 
 
 
