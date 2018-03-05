@@ -120,7 +120,11 @@ class AdbTool(object):
 				return True
 		else:														# 如果不存在记录，添加记录
 			insert_sql = "INSERT INTO video_info(vid,path,status,name,aid,sid,url) VALUES ('%s','%s','%s','%s','%s','%s','%s')" % (vid,'null','1','null',aid,sid,url)
-			DB(insert_sql,'insert')
+			db_res = DB(insert_sql,'insert')
+			if db_res:
+				SaveLog("[3] 新增视频数据成功，vid: %s" % vid)
+			else:
+				SaveLog("[3] 新增视频数据失败 vid: %s" % vid)
 			info_log = "[3] 新增视频信息，vid: %s" % vid
 			SaveLog(info_log)
 			return True
