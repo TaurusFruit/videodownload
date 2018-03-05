@@ -200,9 +200,14 @@ class AdbTool(object):
 
 	def DownloadVideo(self,vid, url, aid, sid, path, name, save_name):
 		sql = "UPDATE video_info SET status = 9 WHERE vid = '%s' " % vid
-		DB(sql,'insert')
-		info_log = "[5] 开始进入下载 vid : %s" % vid
+		db_res = DB(sql,'insert')
+		if db_res:
+			SaveLog("[5] 更新视频为正在下载成功 vid:%s " % vid)
+		else:
+			SaveLog("[5] 更新视频为正在下载失败 vid:%s " % vid)
 
+		info_log = "[5] 开始进入下载 vid : %s" % vid
+		SaveLog(info_log)
 		ffmpeg_log_name = self.ffmpeg_log_path +"/" + name + ".log"			# 当前下载日志
 		cmd = "ffmpeg -i '%s' -absf aac_adtstoasc -acodec copy -vcodec copy -f mp4 %s > %s 2>&1" % (url, save_name, ffmpeg_log_name)
 		post_data = {'aid': aid, 'sid': sid, 'path': path, 'name': '%s/%s' % (path, name), 'status': '1'}
