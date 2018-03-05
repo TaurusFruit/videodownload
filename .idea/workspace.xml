@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="cc05c5aa-f037-40a9-887f-8da55cd767e3" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/scripts/down.py" afterPath="$PROJECT_DIR$/scripts/down.py" />
     </list>
     <ignored path="videodownload.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -577,7 +576,14 @@
       <option name="project" value="LOCAL" />
       <updated>1520238403745</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="更新bug">
+      <created>1520238488082</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1520238488082</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TodoView">
