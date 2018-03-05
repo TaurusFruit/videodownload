@@ -119,6 +119,7 @@ class AdbTool(object):
 				SaveLog(info_log)
 				return True
 		else:														# 如果不存在记录，添加记录
+			url = pymysql.escape_string(url)
 			insert_sql = "INSERT INTO video_info(vid,path,status,name,aid,sid,url) VALUES ('%s','%s','%s','%s','%s','%s','%s')" % (vid,'null','1','null',aid,sid,url)
 			print(insert_sql)
 			db_res = DB(insert_sql,'insert')
