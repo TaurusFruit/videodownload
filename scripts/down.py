@@ -208,7 +208,11 @@ class AdbTool(object):
 
 		if not file_data and cmd_status != '0':
 			sql = "UPDATE video_info SET status = '5' WHERE vid = '%s'" % vid
-			DB(sql,'insert')
+			db_res = DB(sql,'insert')
+			if db_res:
+				SaveLog("[6] 更新数据下载失败成功")
+			else:
+				SaveLog("[6] 更新数据库下载失败失败")
 			error_log = "【6】视频下载失败 vid: %s " % vid
 			SaveLog(error_log,3)
 			return False
