@@ -115,20 +115,6 @@ def getServerData():
 		SaveLog(err_log,2)
 	return False
 
-
-def GetDownloadData():
-	'''
-	获取当前服务器下发视频信息
-	:return:
-	'''
-	url = config_data['global']['server_current_url']
-	try:
-		data = requests.get(url,timeout=5)
-		return data.json()['data']
-	except:
-		return {}
-
-
 def PostData(data):
 	'''
 	讲下载结果post给服务器方法
