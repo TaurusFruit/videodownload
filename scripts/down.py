@@ -2,8 +2,8 @@
 # coding=utf-8
 
 import re
-from .base import *
-from .monitor import *
+from base import *
+from monitor import *
 import requests
 import os
 import time
@@ -307,7 +307,8 @@ if __name__ == '__main__':
 	while 1:
 		adbtool = AdbTool()
 		adbtool.runDownload()
-		time.sleep('10')
+		adbtool.demoShutdown()
+		time.sleep(10)
 
 
 

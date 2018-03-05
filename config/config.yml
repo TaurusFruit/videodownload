@@ -1,6 +1,6 @@
 global:
   root: /Data/webapps/videodownload
-  pid: /var/run/vide/videodownload.pid
+  pid: /var/run/video/videodownload.pid
   log_level: info   #info error debug
   server_post_url: http://service.vmatch.tansuotv.com/youpeng/set_yp_url.php
   server_lasttime_url: http://api.tvad.tansuotv.com/API/yun/youpeng/last_time.php
