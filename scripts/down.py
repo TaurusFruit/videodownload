@@ -30,8 +30,9 @@ class AdbTool(object):
 
 
 	def demoShutdown(self):
-		SaveLog("[0] 正在关闭demot程序")
+		SaveLog("[0] 正在关闭demo程序")
 		os.system("adb shell am force-stop com.demo.wl.jumpdemonew")
+		time.sleep(30)
 
 	def getLastDeviceLog(self):
 		'''
@@ -117,6 +118,7 @@ class AdbTool(object):
 			else:
 				err_log = "[2] 日志/服务器 视频信息不匹配 服务器数据(%s) 日志数据(%s)" % (server_current_data,log_current_data)
 				SaveLog(err_log,2)
+				time.sleep(30)
 				return False
 		except:
 			return False
@@ -355,6 +357,7 @@ class AdbTool(object):
 		tmp_file = "/var/run/video/tmp_file"
 		cmd = "timeout 5 adb logcat > %s" % tmp_file
 		file_size = os.path.getsize(tmp_file)
+		FileHandle('', 'w')					# 讲临时文件清空
 		if file_size > 1028 :
 			return True
 		else:
