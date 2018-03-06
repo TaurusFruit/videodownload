@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from scripts.base import *
+from base import *
 
 
 class transcoding(object):

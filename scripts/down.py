@@ -2,8 +2,8 @@
 # coding=utf-8
 
 import re
-from scripts.base import *
-from scripts.monitor import *
+from monitor import *
+from base import *
 import requests
 import os
 import time
