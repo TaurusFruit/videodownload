@@ -3,7 +3,7 @@
 export python3="/usr/bin/env python3"
 
 base_dir="/Data/webapps/videodownload"
-pid="/var/run/vide/videodownload.pid"
+pid="/var/run/video/videodownload.pid"
 
 function status(){
         if [ -f $pid ];then
