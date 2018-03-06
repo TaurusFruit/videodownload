@@ -75,17 +75,20 @@ class AdbTool(object):
 			SaveLog(err,2)
 			return False
 		server_current_data = getServerData()		# 获取服务器下发视频信息
-		if log_current_data['aid'] == server_current_data['aid'] and log_current_data['sid'] == server_current_data['sid']:	# 判断信息是否匹配
-			info_log = "[2] 日志/服务器 视频信息匹配正确"
-			debug_log = info_log + " %s" % str(server_current_data)
-			if self.log_level == 'info':
-				SaveLog(info_log)
-			elif self.log_level == 'debug':
-				SaveLog(debug_log,3)
-			return True
-		else:
-			err_log = "[2] 日志/服务器 视频信息不匹配 服务器数据(%s) 日志数据(%s)" % (server_current_data,log_current_data)
-			SaveLog(err_log,2)
+		try:
+			if log_current_data['aid'] == server_current_data['aid'] and log_current_data['sid'] == server_current_data['sid']:	# 判断信息是否匹配
+				info_log = "[2] 日志/服务器 视频信息匹配正确"
+				debug_log = info_log + " %s" % str(server_current_data)
+				if self.log_level == 'info':
+					SaveLog(info_log)
+				elif self.log_level == 'debug':
+					SaveLog(debug_log,3)
+				return True
+			else:
+				err_log = "[2] 日志/服务器 视频信息不匹配 服务器数据(%s) 日志数据(%s)" % (server_current_data,log_current_data)
+				SaveLog(err_log,2)
+				return False
+		except:
 			return False
 
 
