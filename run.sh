@@ -24,7 +24,7 @@ function start(){
         else
                 mkdir -p /Data/webapps/video_log/logs
                 nohup python3 ${base_dir}/scripts/down.py > /Data/webapps/video_log/logs/script.log 2>&1 &
-                #nohup /usr/bin/python3 /Data/webapps/VideoDownload/Trans.py >/Data/webapps/VideoDownload/logs/trans.log 2>&1 &
+                nohup python3 ${base_dir}/scripts/transcoding.py >/Data/webapps/video_log/logs/trans.log 2>&1 &
                 #nohup sh /Data/webapps/VideoDownload/DownloadMonitor.sh >> /Data/webapps/VideoDownload/logs/downloadmonitor.log 2>&1 &
                 echo "start ok"
         fi

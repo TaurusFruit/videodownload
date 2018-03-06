@@ -22,11 +22,14 @@ class AdbTool(object):
 		self.video_last_data = self.getLastDeviceLog()
 
 	def demoStart(self):
+		SaveLog("[0] 正在启动demo程序")
 		os.system("adb shell am start -n com.demo.wl.jumpdemonew/com.demo.wl.jumpdemonew.MainActivity")
+		SaveLog("[0] 正在启动adb logcat程序")
 		os.system("timeout 5 adb logcat -v time|grep 'play_url' > %s " % self.device_log_file)
 
 
 	def demoShutdown(self):
+		SaveLog("[0] 正在关闭demot程序")
 		os.system("adb shell am force-stop com.demo.wl.jumpdemonew")
 
 	def getLastDeviceLog(self):
