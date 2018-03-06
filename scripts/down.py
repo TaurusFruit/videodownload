@@ -85,6 +85,8 @@ class AdbTool(object):
 						err = "[2] 判断为下载失败，发送数据返回服务器"
 						SaveLog(err)
 						return False
+					self.video_last_data = self.getLastDeviceLog()
+					time.sleep(2)
 					continue
 				else:
 					err = "[2] 日志数据为空，服务器数据为空"
