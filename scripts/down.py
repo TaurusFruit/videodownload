@@ -2,8 +2,8 @@
 # coding=utf-8
 
 import re
-from base import *
-from monitor import *
+from .base import *
+from .monitor import *
 import requests
 import os
 import time
@@ -67,14 +67,32 @@ class AdbTool(object):
 	def matchCurrentVideoData(self):
 		'''
 		判断当前日志信息跟下发信息是否匹配
+		如果当前日志为空，服务器信息不为空，重试3次，失败后返回服务器下载失败
 		:return: 匹配返回True 否则返回False
 		'''
 		log_current_data = self.video_last_data
-		if not log_current_data:		# 如果没有 日志数据
-			err = "[2] 日志数据为空，匹配失败"
-			SaveLog(err,2)
-			return False
-		server_current_data = getServerData()		# 获取服务器下发视频信息
+		server_current_data = getServerData()  # 获取服务器下发视频信息
+		retry_times = 3
+		while retry_times >= 0:
+			if not log_current_data:		# 如果没有 日志数据
+				if server_current_data:
+					err = "[2] 日志数据为空，服务器数据:%s 匹配失败" % (str(server_current_data))
+					SaveLog(err,2)
+					retry_times -= 1
+					if retry_times == 0:
+						post_data = {'aid': server_current_data['aid'], 'sid': server_current_data['sid'], 'path': 'mull', 'name': 'null', 'status': '0'}  # 返回服务器接口数据
+						PostData(post_data)
+						err = "[2] 判断为下载失败，发送数据返回服务器"
+						SaveLog(err)
+						return False
+					continue
+				else:
+					err = "[2] 日志数据为空，服务器数据为空"
+					SaveLog(err,2)
+					return False
+			else:
+				break
+
 		try:
 			if log_current_data['aid'] == server_current_data['aid'] and log_current_data['sid'] == server_current_data['sid']:	# 判断信息是否匹配
 				info_log = "[2] 日志/服务器 视频信息匹配正确"
