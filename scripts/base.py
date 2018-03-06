@@ -8,7 +8,7 @@ import pymysql
 import requests
 import time
 
-config_file = '/Data/webapps/videodownload/config/config.yml'
+config_file = '../config/config.yml'
 
 with open(config_file) as f:
 	config_data = yaml.load(f)
