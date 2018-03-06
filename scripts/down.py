@@ -32,6 +32,7 @@ class AdbTool(object):
 	def demoShutdown(self):
 		SaveLog("[0] 正在关闭demo程序")
 		os.system("adb shell am force-stop com.demo.wl.jumpdemonew")
+		os.system("adb shell am force-stop com.konka.voole.video")
 		time.sleep(30)
 
 	def getLastDeviceLog(self):
