@@ -84,11 +84,17 @@ class AdbTool(object):
 					SaveLog(err,2)
 					retry_times -= 1
 					if retry_times == 0:
-						post_data = {'aid': server_current_data['aid'], 'sid': server_current_data['sid'], 'path': 'mull', 'name': 'null', 'status': '0'}  # 返回服务器接口数据
-						PostData(post_data)
-						err = "[2] 判断为下载失败，发送数据返回服务器"
-						SaveLog(err)
-						return False
+						if self.xiaokHealthCheck():
+							post_data = {'aid': server_current_data['aid'], 'sid': server_current_data['sid'], 'path': 'mull', 'name': 'null', 'status': '0'}  # 返回服务器接口数据
+							PostData(post_data)
+							err = "[2] 判断为下载失败，发送数据返回服务器"
+							SaveLog(err)
+							return False
+						else:
+							err = "[2] 小K盒子宕机，请检查盒子情况"
+							sendMail(self.contact,err)
+							SaveLog(err,3)
+							return False
 					self.video_last_data = self.getLastDeviceLog()
 					time.sleep(2)
 					continue
@@ -191,9 +197,6 @@ class AdbTool(object):
 				SaveLog("第%s 重试" % str(retry_times))
 			time.sleep(5)
 		return False
-
-
-
 
 	def runDownload(self):
 		if not self.matchCurrentVideoData():					# 判断日志与服务器是否匹配
@@ -342,6 +345,19 @@ class AdbTool(object):
 			return (file_size, file_size_unit[file_size_bit])
 		else:
 			SaveLog("[8] 获取视频文件信息失败,文件不存在", 3)
+			return False
+
+	def xiaokHealthCheck(self):
+		'''
+		小K盒子健康检查，存活返回True，否则返回False
+		:return:
+		'''
+		tmp_file = "/var/run/video/tmp_file"
+		cmd = "timeout 5 adb logcat > %s" % tmp_file
+		file_size = os.path.getsize(tmp_file)
+		if file_size > 1028 :
+			return True
+		else:
 			return False
 
 if __name__ == '__main__':
