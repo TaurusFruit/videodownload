@@ -10,6 +10,7 @@ import time
 import json
 import random
 
+
 class AdbTool(object):
 	def __init__(self):
 		self.device_log_file = config_data['device']['log']				#设备日志地址
