@@ -109,6 +109,10 @@ class AdbTool(object):
 
 		try:
 			if log_current_data['aid'] == server_current_data['aid'] and log_current_data['sid'] == server_current_data['sid']:	# 判断信息是否匹配
+				sname = server_current_data['sname']			# 获取当前播放视频名称
+				vid = log_current_data['vid']
+				sql = "UPDATE video_info SET vname = '%s' WHERE vid = '%s'" % (sname,vid)
+				DB(sql,'insert')								# 更新视频名称
 				info_log = "[2] 日志/服务器 视频信息匹配正确"
 				debug_log = info_log + " %s" % str(server_current_data)
 				if self.log_level == 'info':

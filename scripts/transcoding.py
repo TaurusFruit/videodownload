@@ -70,10 +70,3 @@ if __name__ == '__main__':
     while 1:
         trans.transCoding()
         time.sleep(60)
-
-
-
-
-
-
-
