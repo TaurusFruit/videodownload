@@ -125,6 +125,7 @@ class AdbTool(object):
 			return False
 
 
+	@property
 	def checkVideoStatus(self):
 		'''
 		检查当前日志 视频ID 是否已下载，如果已下载完成返回Fales，
@@ -157,7 +158,7 @@ class AdbTool(object):
 		else:														# 如果不存在记录，添加记录
 			url = pymysql.escape_string(url)
 			insert_sql = "INSERT INTO video_info(vid,path,status,name,aid,sid,url) VALUES ('%s','%s','%s','%s','%s','%s','%s')" % (vid,'null','1','null',aid,sid,url)
-			print(insert_sql)
+			# print(insert_sql)
 			db_res = DB(insert_sql,'insert')
 			if db_res:
 				SaveLog("[3] 新增视频数据成功，vid: %s" % vid)
@@ -204,7 +205,7 @@ class AdbTool(object):
 	def runDownload(self):
 		if not self.matchCurrentVideoData():					# 判断日志与服务器是否匹配
 			return False
-		if not self.checkVideoStatus():							# 判断是否有新视频需要下载
+		if not self.checkVideoStatus:							# 判断是否有新视频需要下载
 			return False
 		video_data = self.video_last_data
 		download_url = self.getDownloadUrl(video_data['url'],video_data['vid'])			# 获取解析后的下载地址
@@ -299,7 +300,7 @@ class AdbTool(object):
 		pic_full_path = os.path.join(pic_dir, name.replace('mp4', 'jpg'))
 		try:
 			cmd_get_time = os.popen(
-				"ffprobe -v quiet -print_format json -show_format -show_streams -i %s" % full_path).read()
+					"ffprobe -v quiet -print_format json -show_format -show_streams -i %s" % full_path).read()
 			v_time_stm = int(float(json.loads(cmd_get_time)['streams'][0]['duration']))
 			pic_stm = random.randint(int(v_time_stm / 2), v_time_stm)
 			pic_time = self.sec2time(pic_stm)
@@ -357,8 +358,9 @@ class AdbTool(object):
 		'''
 		tmp_file = "/var/run/video/tmp_file"
 		cmd = "timeout 5 adb logcat > %s" % tmp_file
+		os.system(cmd)
 		file_size = os.path.getsize(tmp_file)
-		FileHandle('', 'w')					# 讲临时文件清空
+		FileHandle(tmp_file,'', 'w')					# 讲临时文件清空
 		if file_size > 1028 :
 			return True
 		else:

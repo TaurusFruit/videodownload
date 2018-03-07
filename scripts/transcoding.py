@@ -55,7 +55,7 @@ class transcoding(object):
                 try:
                     req = PostData(post_data)
                     SaveLog(("[21] ID: %s 数据发送成功 %s" % (vid,post_data)))
-                    SaveLog("[21] ID: %s 服务器返回数据 %s" % req.json())
+                    SaveLog("[21] ID: %s 服务器返回数据 %s" % str(req.json()))
                 except:
                     SaveLog("[21] ID: %s 数据发送失败 %s" % (vid, post_data), 3)
             else:
