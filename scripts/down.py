@@ -175,7 +175,7 @@ class AdbTool(object):
 		:return:
 		'''
 		retry_times = 0
-		while retry_times <= 5 :	# 重试次数
+		while retry_times <= 10 :	# 重试次数
 			try:
 				html_res = requests.get(url_data, timeout=10)
 				html_res = html_res.text.split()
