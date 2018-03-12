@@ -39,7 +39,7 @@ class download(object):
             self.logger.error("[13] 读取设备日志文件为空")
             return False
         else:
-            self.logger.debug()
+            self.logger.debug("读取设备日志成功")
         # 常规播放地址解析
         url_nomal_compile = re.compile(r'^\d+.+?D/VooleEpg2.+AdPlayer.+\[CDATA\[(?P<url>http://.+aid\":\"(?P<aid>\w+)\".+\"sid\":\"(?P<sid>\w+).+proto=5&up=\'ua=\w+&ub=\w+&ud=\w+&ug=\w+\')\]\].+$')
         # 1905 播放地址解析
