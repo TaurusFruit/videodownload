@@ -9,7 +9,6 @@ import json
 class download(object):
     def __init__(self):
         self.mysql = Mysql()            # mysql 操作
-        self.logger = log()             # 日志操作
         device_log = os.path.join(conf("log","dir"),conf("log","device"))
         self.fh = FileHandle(device_log)          # 文件操作
         self.sd = ServerData()          # 服务器数据交互
@@ -21,14 +20,14 @@ class download(object):
         self.ffmpeg_log_path = conf('log','ffmpeg')
 
     def demoStart(self):
-        self.logger.debug("[10] 正在启动demo程序")
+        log().debug("[10] 正在启动demo程序")
         start_cmd = "adb shell am start -n com.demo.wl.jumpdemonew/com.demo.wl.jumpdemonew.MainActivity"
         os.system(start_cmd)
-        self.logger.debug("[11] 正在启动logcat程序")
+        log().debug("[11] 正在启动logcat程序")
         os.system("timeout 5 adb logcat -v time|grep 'play_url' > %s " % self.device_log_file)
 
     def demoStop(self):
-        self.logger.debug("[12] 正在关闭demo程序")
+        log().debug("[12] 正在关闭demo程序")
         os.system("adb shell am force-stop com.demo.wl.jumpdemonew")
         time.sleep(30)
 
@@ -36,10 +35,10 @@ class download(object):
         self.demoStart()    # 启动 demo 程序,记录日志
         device_log_data = self.fh.read()
         if not device_log_data:
-            self.logger.error("[13] 读取设备日志文件为空")
+            log().error("[13] 读取设备日志文件为空")
             return False
         else:
-            self.logger.debug("[14] 读取设备日志成功")
+            log().debug("[14] 读取设备日志成功")
         # 常规播放地址解析
         # url_nomal_compile = re.compile(r'^\d+.+?D/VooleEpg2.+AdPlayer.+\[CDATA\[(?P<url>http://.+aid\":\"(?P<aid>\w+)\".+\"sid\":\"(?P<sid>\w+).+proto=5&up=\'ua=\w+&ub=\w+&ud=\w+&ug=\w+\')\]\].+$')
         url_nomal_compile = re.compile(r'^.+(?P<url>http://127.0.0.1.+aid\":\"(?P<aid>\w+)\".+\"sid\":\"(?P<sid>\w+).+proto=5&up=\'ua=\w+&ub=\w+&ud=\w+&ug=\w+\').+$')
@@ -50,19 +49,19 @@ class download(object):
             url_nomal_dict = url_nomal_compile.match(each_log)
             url_1905_dict = url_1905_compile.match(each_log)
             if url_nomal_dict:
-                self.logger.debug("[17] 分析设备日志完成,日志类型正常日志")
+                log().debug("[17] 分析设备日志完成,日志类型正常日志")
                 device_detail_data = url_nomal_dict.groupdict()
                 break
             if url_1905_dict:
-                self.logger.debug("[17] 分析设备日志完成,日志类型1905")
+                log().debug("[17] 分析设备日志完成,日志类型1905")
                 device_detail_data = url_1905_dict.groupdict()
                 break
         else:
-            self.logger.error("[17] 分析日志完成,没有获取到视频信息")
+            log().error("[17] 分析日志完成,没有获取到视频信息")
             return False
 
         if len(device_detail_data):
-            self.logger.error("[14] 设备日志分析失败,没有获取到视频信息")
+            log().error("[14] 设备日志分析失败,没有获取到视频信息")
             return False
 
         # 加入vid
@@ -94,7 +93,7 @@ class download(object):
         if server_current_data['aid'] == device_detail_data['aid'] and server_current_data['sid'] == device_detail_data['sid']:
             sname = server_current_data['sname']
             device_detail_data['sname'] = sname
-            self.logger.debug("[15] 设备日志&服务器信息匹配成功")
+            log().debug("[15] 设备日志&服务器信息匹配成功")
             return device_detail_data
         # 1905日志判断
         elif device_detail_data['aid'] == '' and device_detail_data['sid'] == '' and device_detail_data['url'] != '':
@@ -102,10 +101,10 @@ class download(object):
             device_detail_data['sid'] = server_current_data['sid']
             device_detail_data['sname'] = server_current_data['sname']
             device_detail_data['vid'] = device_detail_data['aid'] + device_detail_data['sid']
-            self.logger.debug("[16] 设备1905日志&服务器日志匹配成功")
+            log().debug("[16] 设备1905日志&服务器日志匹配成功")
             return device_detail_data
         else:
-            self.logger.error("[17] 设备日志&服务器数据匹配失败")
+            log().error("[17] 设备日志&服务器数据匹配失败")
             return False
 
     def checkVideoStatus(self,device_detail_data):
@@ -121,15 +120,15 @@ class download(object):
             if db_res[0]['status'] == '2':
                 post_data = {'aid':device_detail_data['aid'],'sid':device_detail_data['sid'],'path':path,'name':name,'status':'2'}		# 返回服务器接口数据
                 self.sd.postData(post_data)
-                self.logger.debug("[18] 当前设备日志信息已下载")
+                log().debug("[18] 当前设备日志信息已下载")
                 return False
             else:   # 如果状态不为2 更新视频状态为1
                 updae_sql = "UPDATE video_info SET status = '1' WHERE vid = '%s'" % device_detail_data['vid']
                 if self.mysql.update(updae_sql):
-                    self.logger.info("[19] 更新数据为新下载成功,vid:%s" % device_detail_data['vid'])
+                    log().info("[19] 更新数据为新下载成功,vid:%s" % device_detail_data['vid'])
                     return True
                 else:
-                    self.logger.error("[20] 更新数据为新下载失败 vid:%s" % device_detail_data['vid'])
+                    log().error("[20] 更新数据为新下载失败 vid:%s" % device_detail_data['vid'])
                     return False
         else:
             device_detail_data['url'] = pymysql.escape_string(device_detail_data['url'])
@@ -154,21 +153,21 @@ class download(object):
         retry_times = 10
         while retry_times < 10:
             current_retry_time = retry_times * -1 + retry_times +1
-            self.logger.debug("[25] 正在进行第%d次解析" % current_retry_time)
+            log().debug("[25] 正在进行第%d次解析" % current_retry_time)
             try:
                 html_res = requests.get(url,timeout=10)
                 html_res_slice = html_res.text.split()
                 for each in html_res_slice:
                     if each.startswith("http://"):
                         download_url = each
-                        self.logger.info("[21] 解析下载地址成功,vid:%s" % vid)
-                        self.logger.debug("[22] 解析下载地址成功,地址为:%s" % url)
+                        log().info("[21] 解析下载地址成功,vid:%s" % vid)
+                        log().debug("[22] 解析下载地址成功,地址为:%s" % url)
                         return download_url.replace("127.0.0.1",self.device_ip_address)
                 else:
-                    self.logger.error("[23] 解析视频地址失败 vid:%s url:%s" % (vid,url))
+                    log().error("[23] 解析视频地址失败 vid:%s url:%s" % (vid,url))
                     retry_times -= 1
             except:
-                self.logger.error("[24] 解析视频地址出错, vid:%s url:%s" % (vid,url))
+                log().error("[24] 解析视频地址出错, vid:%s url:%s" % (vid,url))
                 retry_times -= 1
             time.sleep(10)
         return False
@@ -185,7 +184,7 @@ class download(object):
         if not download_url:
             update_sql = "UPDATE video_info SET status='4' WHERE vid='%s'" % video_data['vid']
             self.mysql.update(update_sql)
-            self.logger.debug("[25] 更新视频记录为下载失败")
+            log().debug("[25] 更新视频记录为下载失败")
             return False
 
         select_sql = "SELECT * FROM video_info WHERE vid=%s" % video_data['vid']
@@ -216,22 +215,22 @@ class download(object):
         sql = "UPDATE video_info SET status = 9 WHERE vid = '%s' " % vid
         self.mysql.update(sql)
 
-        self.logger.debug("[26] 开始进入下载")
+        log().debug("[26] 开始进入下载")
         ffmpeg_log_name = self.ffmpeg_log_path +"/" + name + ".log"			# 当前下载日志
         cmd = 'ffmpeg -i "%s" -absf aac_adtstoasc -acodec copy -vcodec copy -f mp4 "%s" > %s 2>&1' % (url, save_name, ffmpeg_log_name)
         post_data = {'aid': aid, 'sid': sid, 'path': path, 'name': '%s/%s' % (path, name), 'status': '1'}
         self.sd.postData(post_data)
         cmd_status = os.system(cmd)
-        self.logger.debug("[27] 下载命令执行完毕,返回值:%s" % str(cmd_status))
+        log().debug("[27] 下载命令执行完毕,返回值:%s" % str(cmd_status))
         file_data = self.getFileData(save_name,vid)
 
         if not file_data or cmd_status != '0':
             sql = "UPDATE video_info SET status = '5' WHERE vid = '%s'" % vid
             self.mysql.update(sql)
-            self.logger.error("[31] 更新视频状态为下载失败 vid:%s" % vid)
+            log().error("[31] 更新视频状态为下载失败 vid:%s" % vid)
             return False
         else:
-            self.logger.info("[32] 视频下载成功,vid:%s" % vid)
+            log().info("[32] 视频下载成功,vid:%s" % vid)
             self.savePic(save_name,path,name,vid)
             try:
                 cmd = "ffprobe -v quiet -print_format json -show_format -show_streams -i %s" % save_name
@@ -239,15 +238,15 @@ class download(object):
                 if 'color_space' in json.loads(file_info)['streams'][0]:
                     sql= "UPDATE video_info SET status = '3' WHERE vid = '%s'" % vid
                     self.mysql.update(sql)
-                    self.logger.info("[33] 更新视频状态为待转码成功 vid:%s" % vid)
+                    log().info("[33] 更新视频状态为待转码成功 vid:%s" % vid)
                     post_data= {'aid': aid, 'sid': sid, 'path': path, 'name': '%s/%s' % (path, name), 'status': '2'}
                     self.sd.postData(post_data)
                     return True
             except:
-                self.logger.error("[34] 获取视频信息失败 vid:%s" % vid)
+                log().error("[34] 获取视频信息失败 vid:%s" % vid)
             sql = "UPDATE video_info SET status = '2' WHERE vid = '%s'" % vid
             self.mysql.update(sql)
-            self.logger.info("[35] 视频下载完成 vid:%s" % vid)
+            log().info("[35] 视频下载完成 vid:%s" % vid)
             post_data = {'aid': aid, 'sid': sid, 'path': path, 'name': '%s/%s' % (path, name), 'status': '2'}
             self.sd.postData(post_data)
             return True
@@ -277,7 +276,7 @@ class download(object):
         cmd = "ffmpeg -ss %s -i %s -f image2 -q:v 2 -y %s >/dev/null 2>&1" % (pic_time, full_path, pic_full_path)
 
         os.system(cmd)
-        self.logger.debug("[36] ID: %s 截图已生成,图片时间:%s 位置 %s" % (vid, pic_time, pic_full_path))
+        log().debug("[36] ID: %s 截图已生成,图片时间:%s 位置 %s" % (vid, pic_time, pic_full_path))
 
     def sec2time(self,sec):
         hour = 60 * 60
@@ -303,7 +302,7 @@ class download(object):
 		:return:
 		'''
         if os.path.isfile(name):
-            self.logger.debug("[28] 正在获取视频文件信息")
+            log().debug("[28] 正在获取视频文件信息")
             file_size = int(os.path.getsize(name))
             file_size_unit = ['b', 'K', 'M', 'G']
             file_size_bit = 0
@@ -313,10 +312,10 @@ class download(object):
             file_size = int(file_size)
             sql = "UPDATE video_info SET size = '%s' WHERE vid = '%s'" % (str(os.path.getsize(name)), vid)
             self.mysql.update(sql)
-            self.logger.debug("[29] 获取视频文件信息成功,文件大小:%s%s" % (file_size, file_size_unit[file_size_bit]))
+            log().debug("[29] 获取视频文件信息成功,文件大小:%s%s" % (file_size, file_size_unit[file_size_bit]))
             return (file_size, file_size_unit[file_size_bit])
         else:
-            self.logger.debug("[30] 获取视频文件信息失败,文件不存在")
+            log().debug("[30] 获取视频文件信息失败,文件不存在")
             return False
 
 
