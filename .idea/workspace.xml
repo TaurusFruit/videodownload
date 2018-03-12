@@ -164,11 +164,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="basescr.py" pinned="false" current-in-tab="true">
+          <file leaf-file-name="basescr.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/basescr.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="1.1495017">
-                  <caret line="64" column="11" selection-start-line="64" selection-start-column="6" selection-end-line="64" selection-end-column="11" />
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="60" column="24" selection-start-line="60" selection-start-column="24" selection-end-line="60" selection-end-column="24" />
                   <folding>
                     <element signature="e#24#38#0" expanded="true" />
                   </folding>
@@ -176,27 +176,27 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="down.py" pinned="false" current-in-tab="false">
+          <file leaf-file-name="down.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/down.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-6.111111">
-                  <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="29" />
+                <state vertical-scroll-proportion="0.77565217">
+                  <caret line="55" column="29" selection-start-line="55" selection-start-column="29" selection-end-line="55" selection-end-column="29" />
                   <folding>
                     <element signature="e#0#21#0" expanded="true" />
-                    <marker date="1520844058292" expanded="true" signature="4471:4506" placeholder="SELECT * FRO... video_info" />
-                    <marker date="1520844058292" expanded="true" signature="5077:5126" placeholder="UPDATE video... " />
-                    <marker date="1520844058292" expanded="true" signature="5077:5128" placeholder="UPDATE video... " />
-                    <marker date="1520844058292" expanded="true" signature="5606:5668" placeholder="INSERT INTO video_info... " />
-                    <marker date="1520844058292" expanded="true" signature="5606:5747" placeholder="INSERT INTO video_info... " />
-                    <marker date="1520844058292" expanded="true" signature="7684:7726" placeholder="UPDATE video... " />
-                    <marker date="1520844058292" expanded="true" signature="7684:7731" placeholder="UPDATE video... " />
-                    <marker date="1520844058292" expanded="true" signature="7893:7928" placeholder="SELECT * FRO... video_info" />
-                    <marker date="1520844058292" expanded="true" signature="8496:8558" placeholder="UPDATE video... " />
-                    <marker date="1520844058292" expanded="true" signature="9136:9185" placeholder="UPDATE video... " />
-                    <marker date="1520844058292" expanded="true" signature="9846:9897" placeholder="UPDATE video... " />
-                    <marker date="1520844058292" expanded="true" signature="10419:10470" placeholder="UPDATE video... " />
-                    <marker date="1520844058292" expanded="true" signature="10892:10943" placeholder="UPDATE video... " />
-                    <marker date="1520844058292" expanded="true" signature="13370:13420" placeholder="UPDATE video... " />
+                    <marker date="1520844295054" expanded="true" signature="4504:4539" placeholder="SELECT * FRO... video_info" />
+                    <marker date="1520844295054" expanded="true" signature="5110:5159" placeholder="UPDATE video... " />
+                    <marker date="1520844295054" expanded="true" signature="5110:5161" placeholder="UPDATE video... " />
+                    <marker date="1520844295054" expanded="true" signature="5639:5701" placeholder="INSERT INTO video_info... " />
+                    <marker date="1520844295054" expanded="true" signature="5639:5780" placeholder="INSERT INTO video_info... " />
+                    <marker date="1520844295054" expanded="true" signature="7717:7759" placeholder="UPDATE video... " />
+                    <marker date="1520844295054" expanded="true" signature="7717:7764" placeholder="UPDATE video... " />
+                    <marker date="1520844295054" expanded="true" signature="7926:7961" placeholder="SELECT * FRO... video_info" />
+                    <marker date="1520844295054" expanded="true" signature="8529:8591" placeholder="UPDATE video... " />
+                    <marker date="1520844295054" expanded="true" signature="9169:9218" placeholder="UPDATE video... " />
+                    <marker date="1520844295054" expanded="true" signature="9879:9930" placeholder="UPDATE video... " />
+                    <marker date="1520844295054" expanded="true" signature="10452:10503" placeholder="UPDATE video... " />
+                    <marker date="1520844295054" expanded="true" signature="10925:10976" placeholder="UPDATE video... " />
+                    <marker date="1520844295054" expanded="true" signature="13403:13453" placeholder="UPDATE video... " />
                   </folding>
                 </state>
               </provider>
@@ -994,7 +994,13 @@
       <option name="project" value="LOCAL" />
       <updated>1520843973151</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="更新代码">
+      <created>1520844109176</created>
+      <option name="number" value="00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1520844109176</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1669,36 +1675,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/down.py">
+    <entry file="file://$PROJECT_DIR$/src/basescr.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.111111">
-          <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="60" column="24" selection-start-line="60" selection-start-column="24" selection-end-line="60" selection-end-column="24" />
           <folding>
-            <element signature="e#0#21#0" expanded="true" />
-            <marker date="1520844058292" expanded="true" signature="4471:4506" placeholder="SELECT * FRO... video_info" />
-            <marker date="1520844058292" expanded="true" signature="5077:5126" placeholder="UPDATE video... " />
-            <marker date="1520844058292" expanded="true" signature="5077:5128" placeholder="UPDATE video... " />
-            <marker date="1520844058292" expanded="true" signature="5606:5668" placeholder="INSERT INTO video_info... " />
-            <marker date="1520844058292" expanded="true" signature="5606:5747" placeholder="INSERT INTO video_info... " />
-            <marker date="1520844058292" expanded="true" signature="7684:7726" placeholder="UPDATE video... " />
-            <marker date="1520844058292" expanded="true" signature="7684:7731" placeholder="UPDATE video... " />
-            <marker date="1520844058292" expanded="true" signature="7893:7928" placeholder="SELECT * FRO... video_info" />
-            <marker date="1520844058292" expanded="true" signature="8496:8558" placeholder="UPDATE video... " />
-            <marker date="1520844058292" expanded="true" signature="9136:9185" placeholder="UPDATE video... " />
-            <marker date="1520844058292" expanded="true" signature="9846:9897" placeholder="UPDATE video... " />
-            <marker date="1520844058292" expanded="true" signature="10419:10470" placeholder="UPDATE video... " />
-            <marker date="1520844058292" expanded="true" signature="10892:10943" placeholder="UPDATE video... " />
-            <marker date="1520844058292" expanded="true" signature="13370:13420" placeholder="UPDATE video... " />
+            <element signature="e#24#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/basescr.py">
+    <entry file="file://$PROJECT_DIR$/src/down.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1495017">
-          <caret line="64" column="11" selection-start-line="64" selection-start-column="6" selection-end-line="64" selection-end-column="11" />
+        <state vertical-scroll-proportion="0.77565217">
+          <caret line="55" column="29" selection-start-line="55" selection-start-column="29" selection-end-line="55" selection-end-column="29" />
           <folding>
-            <element signature="e#24#38#0" expanded="true" />
+            <element signature="e#0#21#0" expanded="true" />
+            <marker date="1520844295054" expanded="true" signature="4504:4539" placeholder="SELECT * FRO... video_info" />
+            <marker date="1520844295054" expanded="true" signature="5110:5159" placeholder="UPDATE video... " />
+            <marker date="1520844295054" expanded="true" signature="5110:5161" placeholder="UPDATE video... " />
+            <marker date="1520844295054" expanded="true" signature="5639:5701" placeholder="INSERT INTO video_info... " />
+            <marker date="1520844295054" expanded="true" signature="5639:5780" placeholder="INSERT INTO video_info... " />
+            <marker date="1520844295054" expanded="true" signature="7717:7759" placeholder="UPDATE video... " />
+            <marker date="1520844295054" expanded="true" signature="7717:7764" placeholder="UPDATE video... " />
+            <marker date="1520844295054" expanded="true" signature="7926:7961" placeholder="SELECT * FRO... video_info" />
+            <marker date="1520844295054" expanded="true" signature="8529:8591" placeholder="UPDATE video... " />
+            <marker date="1520844295054" expanded="true" signature="9169:9218" placeholder="UPDATE video... " />
+            <marker date="1520844295054" expanded="true" signature="9879:9930" placeholder="UPDATE video... " />
+            <marker date="1520844295054" expanded="true" signature="10452:10503" placeholder="UPDATE video... " />
+            <marker date="1520844295054" expanded="true" signature="10925:10976" placeholder="UPDATE video... " />
+            <marker date="1520844295054" expanded="true" signature="13403:13453" placeholder="UPDATE video... " />
           </folding>
         </state>
       </provider>

@@ -44,7 +44,7 @@ class download(object):
         url_nomal_compile = re.compile(r'^\d+.+?D/VooleEpg2.+AdPlayer.+\[CDATA\[(?P<url>http://.+aid\":\"(?P<aid>\w+)\".+\"sid\":\"(?P<sid>\w+).+proto=5&up=\'ua=\w+&ub=\w+&ud=\w+&ug=\w+\')\]\].+$')
         # 1905 播放地址解析
         url_1905_compile = re.compile(r'^\d+.+?D/VooleEpg2.+AdPlayer.+\[CDATA\[http:\/\/.+\'(?P<url>http.+vodfile.m1905.com\/.+.mp4)\'&up=\'ua=\w+&ub=\w+&ud=\w+&ug=\w+.*$')
-
+        device_detail_data = {}
         for each_log in device_log_data:
             url_nomal_dict = url_nomal_compile.match(each_log)
             url_1905_dict = url_1905_compile.match(each_log)
@@ -56,7 +56,8 @@ class download(object):
                 self.logger.debug("[17] 分析设备日志完成,日志类型1905")
                 device_detail_data = url_1905_dict.groupdict()
                 break
-        if not device_detail_data:
+
+        if len(device_detail_data):
             self.logger.error("[14] 设备日志分析失败,没有获取到视频信息")
             return False
 
