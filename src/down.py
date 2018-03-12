@@ -11,7 +11,7 @@ class download(object):
         self.mysql = Mysql()            # mysql 操作
         self.logger = log()             # 日志操作
         device_log = os.path.join(conf("log","dir"),conf("log","device"))
-        self.fh = FileHandle()          # 文件操作
+        self.fh = FileHandle(device_log)          # 文件操作
         self.sd = ServerData()          # 服务器数据交互
         self.device_log_file = os.path.join(conf('log','dir'),conf('log','device'))
         self.device_ip_address = conf('device','ip')
