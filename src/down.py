@@ -42,7 +42,7 @@ class download(object):
             self.logger.debug("[14] 读取设备日志成功")
         # 常规播放地址解析
         # url_nomal_compile = re.compile(r'^\d+.+?D/VooleEpg2.+AdPlayer.+\[CDATA\[(?P<url>http://.+aid\":\"(?P<aid>\w+)\".+\"sid\":\"(?P<sid>\w+).+proto=5&up=\'ua=\w+&ub=\w+&ud=\w+&ug=\w+\')\]\].+$')
-        url_nomal_compile = re.compile(r'(?P<url>http://127.0.0.1.+aid\":\"(?P<aid>\w+)\".+\"sid\":\"(?P<sid>\w+).+proto=5&up=\'ua=\w+&ub=\w+&ud=\w+&ug=\w+\').+$')
+        url_nomal_compile = re.compile(r'^.+(?P<url>http://127.0.0.1.+aid\":\"(?P<aid>\w+)\".+\"sid\":\"(?P<sid>\w+).+proto=5&up=\'ua=\w+&ub=\w+&ud=\w+&ug=\w+\').+$')
         # 1905 播放地址解析
         url_1905_compile = re.compile(r'^\d+.+?D/VooleEpg2.+AdPlayer.+\[CDATA\[http:\/\/.+\'(?P<url>http.+vodfile.m1905.com\/.+.mp4)\'&up=\'ua=\w+&ub=\w+&ud=\w+&ug=\w+.*$')
         device_detail_data = {}

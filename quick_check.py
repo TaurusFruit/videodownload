@@ -7,7 +7,7 @@ with open(devices_log) as f:
 
 import re
 
-url_compile = re.compile(r'(?P<url>http://127.0.0.1.+aid\":\"(?P<aid>\w+)\".+\"sid\":\"(?P<sid>\w+).+proto=5&up=\'ua=\w+&ub=\w+&ud=\w+&ug=\w+\').+$')
+url_compile = re.compile(r'^.+(?P<url>http://127.0.0.1.+aid\":\"(?P<aid>\w+)\".+\"sid\":\"(?P<sid>\w+).+proto=5&up=\'ua=\w+&ub=\w+&ud=\w+&ug=\w+\').+$')
 
 for i in fd:
         u_data = url_compile.match(i)
