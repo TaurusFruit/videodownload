@@ -64,7 +64,6 @@ def log(name='video'):
 
 class Mysql(object):
     def __init__(self):
-        self.logger = log()
         self.__conf = {
             'host':conf('db','host'),
             'port':conf('db','port'),
@@ -89,13 +88,13 @@ class Mysql(object):
             self.conn.close()
             info_log = "数据更新成功"
             debug_log = "更新SQL: %s" % sql
-            self.logger.info(info_log)
-            self.logger.debug(debug_log)
+            log().info(info_log)
+            log().debug(debug_log)
             return True
         except:
             self.conn.rollback()
             self.conn.close()
-            self.logger.error("数据插入失败,SQL:%s"%sql)
+            log().error("数据插入失败,SQL:%s"%sql)
             return False
 
     def select(self,sql):
@@ -106,12 +105,12 @@ class Mysql(object):
             self.conn.close()
             info_log = "数据查询成功"
             debug_log = "查询SQL: %s" % sql
-            self.logger.info(info_log)
-            self.logger.debug(debug_log)
+            log().info(info_log)
+            log().debug(debug_log)
             return results
         except:
             self.conn.close()
-            self.logger.error("数据查询失败,SQL: %s" %sql)
+            log().error("数据查询失败,SQL: %s" %sql)
             return False
 
     def update(self,sql):
@@ -121,36 +120,35 @@ class Mysql(object):
 class FileHandle():
     def __init__(self,filename):
         self.filename = filename
-        self.logger = log()
 
     def write(self,data):
         try:
             with open(self.filename,'w') as f:
                 f.writelines(data)
-            self.logger.debug("写入文件成功,文件名:%s" % self.filename)
+            log().debug("写入文件成功,文件名:%s" % self.filename)
             return True
         except:
-            self.logger.error("写入文件失败,文件名:%s" % self.filename)
+            log().error("写入文件失败,文件名:%s" % self.filename)
             return False
 
     def add(self,data):
         try:
             with open(self.filename,'a') as f:
                 f.writelines(data)
-            self.logger.info("追加文件内容成功,文件名:%s" % self.filename)
+            log().info("追加文件内容成功,文件名:%s" % self.filename)
             return True
         except:
-            self.logger.error("追加文件内容失败,文件名:%s" % self.filename)
+            log().error("追加文件内容失败,文件名:%s" % self.filename)
             return False
 
     def read(self):
         try:
             with open(self.filename) as f:
                 fd = f.readlines()
-            self.logger.debug("读取文件成功,文件名:%s" % self.filename)
+            log().debug("读取文件成功,文件名:%s" % self.filename)
             return fd
         except:
-            self.logger.debug("读取文件失败,文件名:%s" % self.filename)
+            log().debug("读取文件失败,文件名:%s" % self.filename)
             return False
 
 class ServerData(object):
@@ -158,24 +156,23 @@ class ServerData(object):
         self.get_data_url = conf('global','server_current_url')
         self.post_data_url = conf('global','server_post_url')
         self.get_lasttime_url = conf('global','server_lasttime_url')
-        self.logger = log()
 
     def getData(self):
         try:
             data = requests.get(self.get_data_url,timeout=10)
-            self.logger.debug("获取服务器下载列表成功")
+            log().debug("获取服务器下载列表成功")
             return data.json()['data'][0]
         except:
-            self.logger.error("获取服务器下载列表失败")
+            log().error("获取服务器下载列表失败")
             return False
 
     def postData(self,data):
         try:
             res = requests.post(self.post_data_url,data=data)
-            self.logger.debug("数据发送成功 : %s" % str(data))
-            self.logger.debug("服务器返回数据: %s" % str(data))
+            log().debug("数据发送成功 : %s" % str(data))
+            log().debug("服务器返回数据: %s" % str(data))
             return True
         except:
-            self.logger.error("数据发送失败: %s" % str(data))
+            log().error("数据发送失败: %s" % str(data))
             return False
 

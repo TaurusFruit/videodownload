@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cc05c5aa-f037-40a9-887f-8da55cd767e3" name="Default" comment="">
+    <list default="true" id="cc05c5aa-f037-40a9-887f-8da55cd767e3" name="Default" comment="更新代码">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/down.py" afterPath="$PROJECT_DIR$/src/down.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/quick_check.py" afterPath="$PROJECT_DIR$/quick_check.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/basescr.py" afterPath="$PROJECT_DIR$/src/basescr.py" />
     </list>
     <ignored path="videodownload.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -168,7 +169,7 @@
             <entry file="file://$PROJECT_DIR$/src/basescr.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="60" column="24" selection-start-line="60" selection-start-column="24" selection-end-line="60" selection-end-column="24" />
+                  <caret line="158" column="0" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
                   <folding>
                     <element signature="e#24#38#0" expanded="true" />
                   </folding>
@@ -176,11 +177,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="down.py" pinned="false" current-in-tab="true">
+          <file leaf-file-name="down.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/down.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.65217394">
-                  <caret line="44" column="163" selection-start-line="44" selection-start-column="163" selection-end-line="44" selection-end-column="163" />
+                <state vertical-scroll-proportion="-6.111111">
+                  <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
                   <folding>
                     <element signature="e#0#21#0" expanded="true" />
                     <marker date="1520846635484" expanded="true" signature="4769:4804" placeholder="SELECT * FRO... video_info" />
@@ -198,6 +199,16 @@
                     <marker date="1520846635484" expanded="true" signature="11190:11241" placeholder="UPDATE video... " />
                     <marker date="1520846635484" expanded="true" signature="13668:13718" placeholder="UPDATE video... " />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="quick_check.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/quick_check.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.37375414">
+                  <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -237,7 +248,6 @@
         <option value="$PROJECT_DIR$/scripts/monitor.py" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.py" />
-        <option value="$PROJECT_DIR$/quick_check.py" />
         <option value="$PROJECT_DIR$/transcoding.py" />
         <option value="$PROJECT_DIR$/base/__init__.py" />
         <option value="$PROJECT_DIR$/__init__.py" />
@@ -251,9 +261,10 @@
         <option value="$PROJECT_DIR$/scripts/down.py" />
         <option value="$PROJECT_DIR$/run.sh" />
         <option value="$PROJECT_DIR$/src/transcoding.py" />
-        <option value="$PROJECT_DIR$/src/basescr.py" />
         <option value="$PROJECT_DIR$/config/vconf.yml" />
         <option value="$PROJECT_DIR$/src/down.py" />
+        <option value="$PROJECT_DIR$/src/basescr.py" />
+        <option value="$PROJECT_DIR$/quick_check.py" />
       </list>
     </option>
   </component>
@@ -1018,7 +1029,13 @@
       <option name="project" value="LOCAL" />
       <updated>1520844593328</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="更新代码">
+      <created>1520846643920</created>
+      <option name="number" value="00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1520846643920</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1597,14 +1614,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/quick_check.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4979253">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/transcoding.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1693,20 +1702,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/basescr.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="60" column="24" selection-start-line="60" selection-start-column="24" selection-end-line="60" selection-end-column="24" />
-          <folding>
-            <element signature="e#24#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/down.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.65217394">
-          <caret line="44" column="163" selection-start-line="44" selection-start-column="163" selection-end-line="44" selection-end-column="163" />
+        <state vertical-scroll-proportion="-6.111111">
+          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
             <marker date="1520846635484" expanded="true" signature="4769:4804" placeholder="SELECT * FRO... video_info" />
@@ -1724,6 +1723,24 @@
             <marker date="1520846635484" expanded="true" signature="11190:11241" placeholder="UPDATE video... " />
             <marker date="1520846635484" expanded="true" signature="13668:13718" placeholder="UPDATE video... " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/basescr.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="158" column="0" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
+          <folding>
+            <element signature="e#24#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/quick_check.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37375414">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
