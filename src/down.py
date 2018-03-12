@@ -328,7 +328,7 @@ class download(object):
 
 if __name__ == "__main__":
     pid = str(os.getpid())
-    with open(conf("global","pid"),'w') as f:
+    with open(os.path.join(conf("global","pid_dir"),"download.pid"),'w') as f:
         f.write(pid)
 
     down_monitor_times = 3
