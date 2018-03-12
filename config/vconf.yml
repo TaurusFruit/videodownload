@@ -1,0 +1,27 @@
+global:
+  root: /Data/webapps/videodownload     # 程序根目录
+  video_dir: /Data/webapps/video        # 视频存放目录
+  image_dir: /Data/webapps/video_img    # 图片存放目录
+  pid_dir: /var/run/video/
+  server_post_url: http://service.vmatch.tansuotv.com/youpeng/set_yp_url.php
+  server_lasttime_url: http://api.tvad.tansuotv.com/API/yun/youpeng/last_time.php
+  server_current_url: http://api.vmatch.tansuotv.com/API/yun/youpeng/check_yp_data.php
+  device_ip: 10.20.40.214
+
+log:
+  level: debug
+  console_print: true
+  dir: ./
+  download: video_%Y-%m-%d.log
+  device: device.log
+  ffmpeg_dir: /Data/webapps/video_log/ffmpeg_log
+
+db:
+  name: video
+  host: 10.20.40.21
+  port: 3306
+  user: root
+  passwd: zhanglei
+
+connect:
+  mail: zhanglei@tansuotv.com

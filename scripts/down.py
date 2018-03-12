@@ -45,10 +45,15 @@ class AdbTool(object):
 			device_log_data = FileHandle(self.device_log_file,type='r')[-10:]				# 获取最后10条日志记录
 			device_last_log = {}															# 最后一条可用日志数据 {'aid':111,'sid':1111,'url':'http:xxxx'}
 			url_compile = re.compile(r'^\d+.+?D/VooleEpg2.+AdPlayer.+\[CDATA\[(?P<url>http://.+aid\":\"(?P<aid>\w+)\".+\"sid\":\"(?P<sid>\w+).+proto=5&up=\'ua=\w+&ub=\w+&ud=\w+&ug=\w+\')\]\].+$')
+			url_1905_compile = re.compile(r'^\d+.+?D/VooleEpg2.+AdPlayer.+\[CDATA\[http:\/\/.+\'(?P<url>http.+vodfile.m1905.com\/.+.mp4)\'&up=\'ua=\w+&ub=\w+&ud=\w+&ug=\w+.*$')
 			for each_log in device_log_data:
 				url_info_dict = url_compile.match(each_log)
+				url_1905_info_dict = url_1905_compile.match(each_log)
 				if url_info_dict:
 					device_last_log = url_info_dict.groupdict()
+				if url_1905_info_dict:
+					device_1905_last_log = url_1905_info_dict.groupdict()
+
 
 			if device_last_log:
 				info_log = "[1] 获取日志数据成功"
@@ -60,6 +65,13 @@ class AdbTool(object):
 				device_last_log['url'] = device_last_log['url'].replace('127.0.0.1', self.device_ip)	# 替换日志url地址中127。0.0.1 为设备IP
 				device_last_log['vid']  = device_last_log['aid'] + device_last_log['sid']				# 增加vid字段
 				return device_last_log  # 返回最后一条记录aid sid url信息
+			# elif device_1905_last_log:
+			# 	info_log = "[1] 获取1905电影日志成功"
+			# 	SaveLog(info_log)
+			# 	device_1905_last_log.setdefault('vid','')
+			# 	device_1905_last_log.setdefault('aid','')
+			# 	device_1905_last_log.setdefault('sid','')
+			# 	return device_1905_last_log
 			else:
 				err = "[1] 未获取到正确下载日志"
 				SaveLog(err,2)
@@ -108,6 +120,10 @@ class AdbTool(object):
 				break
 
 		try:
+			if log_current_data['aid'] == '' and log_current_data['sid'] == '':
+				log_current_data['aid'] = server_current_data['aid']
+				log_current_data['sid'] = server_current_data['sid']
+				log_current_data['vid'] = log_current_data['aid'] + log_current_data['sid']
 			if log_current_data['aid'] == server_current_data['aid'] and log_current_data['sid'] == server_current_data['sid']:	# 判断信息是否匹配
 				sname = server_current_data['sname']			# 获取当前播放视频名称
 				vid = log_current_data['vid']
@@ -274,7 +290,7 @@ class AdbTool(object):
 					sql = "UPDATE video_info SET status = '3' WHERE vid = '%s'" % vid
 					DB(sql,'insert')
 					SaveLog("[6] ID: %s 更新视频状态为 待转码 成功"%vid)
-					post_data = {'aid': aid, 'sid': sid, 'path': path, 'name': '%s/%s' % (path, name), 'status': '2'}
+					post_data= {'aid': aid, 'sid': sid, 'path': path, 'name': '%s/%s' % (path, name), 'status': '2'}
 					PostData(post_data)
 					self.demoShutdown()														# 关闭demo程序
 					return True
@@ -355,6 +371,7 @@ class AdbTool(object):
 			SaveLog("[8] 获取视频文件信息失败,文件不存在", 3)
 			return False
 
+	@staticmethod
 	def xiaokHealthCheck(self):
 		'''
 		小K盒子健康检查，存活返回True，否则返回False
@@ -375,9 +392,12 @@ if __name__ == '__main__':
 	with open(config_data['global']['pid'],'w') as f:
 		f.write(pid)
 
-
+	down_monitor_times = 3
 	while 1:
 		adbtool = AdbTool()
+		if not adbtool.xiaokHealthCheck():
+			down_monitor_times -= 1
+			time.sleep(1800)
 		adbtool.runDownload()
 		adbtool.demoShutdown()
 		time.sleep(10)
