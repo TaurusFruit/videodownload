@@ -11,7 +11,7 @@ global:
 log:
   level: debug
   console_print: true
-  dir: ./
+  dir: /Data/webapps/video_log/
   download: video_%Y-%m-%d.log
   device: device.log
   ffmpeg_dir: /Data/webapps/video_log/ffmpeg_log
