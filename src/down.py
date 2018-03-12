@@ -39,7 +39,7 @@ class download(object):
             self.logger.error("[13] 读取设备日志文件为空")
             return False
         else:
-            self.logger.debug("读取设备日志成功")
+            self.logger.debug("[14] 读取设备日志成功")
         # 常规播放地址解析
         url_nomal_compile = re.compile(r'^\d+.+?D/VooleEpg2.+AdPlayer.+\[CDATA\[(?P<url>http://.+aid\":\"(?P<aid>\w+)\".+\"sid\":\"(?P<sid>\w+).+proto=5&up=\'ua=\w+&ub=\w+&ud=\w+&ug=\w+\')\]\].+$')
         # 1905 播放地址解析
@@ -56,6 +56,9 @@ class download(object):
                 self.logger.debug("[17] 分析设备日志完成,日志类型1905")
                 device_detail_data = url_1905_dict.groupdict()
                 break
+        else:
+            self.logger.error("[17] 分析日志完成,没有获取到视频信息")
+            return False
 
         if len(device_detail_data):
             self.logger.error("[14] 设备日志分析失败,没有获取到视频信息")
