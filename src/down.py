@@ -343,22 +343,5 @@ if __name__ == "__main__":
             down_monitor_times -= 1
             time.sleep(1800)
         adbtool.runDownload()
-        adbtool.demoShutdown()
+        adbtool.demoStop()
         time.sleep(10)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
