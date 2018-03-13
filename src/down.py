@@ -13,7 +13,7 @@ class download(object):
         self.fh = FileHandle(device_log)          # 文件操作
         self.sd = ServerData()          # 服务器数据交互
         self.device_log_file = os.path.join(conf('log','dir'),conf('log','device'))
-        self.device_ip_address = conf('device','ip')
+        self.device_ip_address = conf('global','device_ip')
         self.video_save_path = conf('video','root')
         self.contact_mail = conf('monitor','mail')
         self.img_save_path = conf('image','root')
