@@ -57,7 +57,7 @@ class download(object):
                 logger.debug("[17] 分析设备日志完成,日志类型1905")
                 device_detail_data = url_1905_dict.groupdict()
                 break
-        else:
+        if len(device_detail_data) == 0:
             logger.error("[17] 分析日志完成,没有获取到视频信息")
             return False
 
