@@ -176,7 +176,7 @@ class download(object):
 
 
     def runDownload(self):
-        video_data = self.getLastDevicelogger
+        video_data = self.getLastDeviceLog()
         if not video_data:
             return False
 
