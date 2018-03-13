@@ -49,8 +49,9 @@ class download(object):
             url_nomal_dict = url_nomal_compile.match(each_log)
             url_1905_dict = url_1905_compile.match(each_log)
             if url_nomal_dict:
-                logger.debug("[17] 分析设备日志完成,日志类型正常日志")
                 device_detail_data = url_nomal_dict.groupdict()
+                logger.debug("[17] 分析设备日志完成,日志类型正常日志")
+                logger.debug("[17] 日志明细: %s" % str(device_detail_data))
                 break
             if url_1905_dict:
                 logger.debug("[17] 分析设备日志完成,日志类型1905")

@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="cc05c5aa-f037-40a9-887f-8da55cd767e3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/vconf.yml" afterPath="$PROJECT_DIR$/config/vconf.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/basescr.py" afterPath="$PROJECT_DIR$/src/basescr.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/down.py" afterPath="$PROJECT_DIR$/src/down.py" />
     </list>
     <ignored path="videodownload.iws" />
@@ -181,21 +179,21 @@
           <file leaf-file-name="down.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/down.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.3396482">
-                  <caret line="23" column="44" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="44" />
+                <state vertical-scroll-proportion="0.60674155">
+                  <caret line="53" column="69" selection-start-line="53" selection-start-column="69" selection-end-line="53" selection-end-column="69" />
                   <folding>
                     <element signature="e#0#21#0" expanded="true" />
-                    <marker date="1520906334689" expanded="true" signature="4665:4700" placeholder="SELECT * FRO... video_info" />
-                    <marker date="1520906334689" expanded="true" signature="5266:5317" placeholder="UPDATE video... " />
-                    <marker date="1520906334689" expanded="true" signature="5785:5926" placeholder="INSERT INTO video_info... " />
-                    <marker date="1520906334689" expanded="true" signature="7839:7886" placeholder="UPDATE video... " />
-                    <marker date="1520906334689" expanded="true" signature="8043:8078" placeholder="SELECT * FRO... video_info" />
-                    <marker date="1520906334689" expanded="true" signature="8646:8708" placeholder="UPDATE video... " />
-                    <marker date="1520906334689" expanded="true" signature="9286:9335" placeholder="UPDATE video... " />
-                    <marker date="1520906334689" expanded="true" signature="9986:10037" placeholder="UPDATE video... " />
-                    <marker date="1520906334689" expanded="true" signature="10549:10600" placeholder="UPDATE video... " />
-                    <marker date="1520906334689" expanded="true" signature="11012:11063" placeholder="UPDATE video... " />
-                    <marker date="1520906334689" expanded="true" signature="13475:13525" placeholder="UPDATE video... " />
+                    <marker date="1520908911833" expanded="true" signature="4737:4772" placeholder="SELECT * FRO... video_info" />
+                    <marker date="1520908911833" expanded="true" signature="5338:5389" placeholder="UPDATE video... " />
+                    <marker date="1520908911833" expanded="true" signature="5857:5998" placeholder="INSERT INTO video_info... " />
+                    <marker date="1520908911833" expanded="true" signature="7910:7957" placeholder="UPDATE video... " />
+                    <marker date="1520908911833" expanded="true" signature="8114:8149" placeholder="SELECT * FRO... video_info" />
+                    <marker date="1520908911833" expanded="true" signature="8717:8779" placeholder="UPDATE video... " />
+                    <marker date="1520908911833" expanded="true" signature="9357:9406" placeholder="UPDATE video... " />
+                    <marker date="1520908911833" expanded="true" signature="10057:10108" placeholder="UPDATE video... " />
+                    <marker date="1520908911833" expanded="true" signature="10620:10671" placeholder="UPDATE video... " />
+                    <marker date="1520908911833" expanded="true" signature="11083:11134" placeholder="UPDATE video... " />
+                    <marker date="1520908911833" expanded="true" signature="13546:13596" placeholder="UPDATE video... " />
                   </folding>
                 </state>
               </provider>
@@ -740,18 +738,6 @@
       <option name="number" value="Default" />
       <updated>1515988128063</updated>
     </task>
-    <task id="LOCAL-00004" summary="更新bug">
-      <created>1520231056154</created>
-      <option name="number" value="00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1520231056154</updated>
-    </task>
-    <task id="LOCAL-00005" summary="更新bug">
-      <created>1520231159305</created>
-      <option name="number" value="00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1520231159305</updated>
-    </task>
     <task id="LOCAL-00006" summary="更新bug">
       <created>1520231167391</created>
       <option name="number" value="00006" />
@@ -1034,7 +1020,19 @@
       <option name="project" value="LOCAL" />
       <updated>1520847295436</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="更新代码">
+      <created>1520906342521</created>
+      <option name="number" value="00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1520906342522</updated>
+    </task>
+    <task id="LOCAL-00054" summary="更新代码">
+      <created>1520906463920</created>
+      <option name="number" value="00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1520906463920</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1052,6 +1050,7 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.124475524" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14301676" sideWeight="0.53006995" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.497552" order="7" side_tool="false" content_ui="tabs" />
@@ -1060,7 +1059,6 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20150054" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1721,21 +1719,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/down.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3396482">
-          <caret line="23" column="44" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="44" />
+        <state vertical-scroll-proportion="0.60674155">
+          <caret line="53" column="69" selection-start-line="53" selection-start-column="69" selection-end-line="53" selection-end-column="69" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
-            <marker date="1520906334689" expanded="true" signature="4665:4700" placeholder="SELECT * FRO... video_info" />
-            <marker date="1520906334689" expanded="true" signature="5266:5317" placeholder="UPDATE video... " />
-            <marker date="1520906334689" expanded="true" signature="5785:5926" placeholder="INSERT INTO video_info... " />
-            <marker date="1520906334689" expanded="true" signature="7839:7886" placeholder="UPDATE video... " />
-            <marker date="1520906334689" expanded="true" signature="8043:8078" placeholder="SELECT * FRO... video_info" />
-            <marker date="1520906334689" expanded="true" signature="8646:8708" placeholder="UPDATE video... " />
-            <marker date="1520906334689" expanded="true" signature="9286:9335" placeholder="UPDATE video... " />
-            <marker date="1520906334689" expanded="true" signature="9986:10037" placeholder="UPDATE video... " />
-            <marker date="1520906334689" expanded="true" signature="10549:10600" placeholder="UPDATE video... " />
-            <marker date="1520906334689" expanded="true" signature="11012:11063" placeholder="UPDATE video... " />
-            <marker date="1520906334689" expanded="true" signature="13475:13525" placeholder="UPDATE video... " />
+            <marker date="1520908911833" expanded="true" signature="4737:4772" placeholder="SELECT * FRO... video_info" />
+            <marker date="1520908911833" expanded="true" signature="5338:5389" placeholder="UPDATE video... " />
+            <marker date="1520908911833" expanded="true" signature="5857:5998" placeholder="INSERT INTO video_info... " />
+            <marker date="1520908911833" expanded="true" signature="7910:7957" placeholder="UPDATE video... " />
+            <marker date="1520908911833" expanded="true" signature="8114:8149" placeholder="SELECT * FRO... video_info" />
+            <marker date="1520908911833" expanded="true" signature="8717:8779" placeholder="UPDATE video... " />
+            <marker date="1520908911833" expanded="true" signature="9357:9406" placeholder="UPDATE video... " />
+            <marker date="1520908911833" expanded="true" signature="10057:10108" placeholder="UPDATE video... " />
+            <marker date="1520908911833" expanded="true" signature="10620:10671" placeholder="UPDATE video... " />
+            <marker date="1520908911833" expanded="true" signature="11083:11134" placeholder="UPDATE video... " />
+            <marker date="1520908911833" expanded="true" signature="13546:13596" placeholder="UPDATE video... " />
           </folding>
         </state>
       </provider>
