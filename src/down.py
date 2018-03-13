@@ -61,10 +61,6 @@ class download(object):
             logger.error("[17] 分析日志完成,没有获取到视频信息")
             return False
 
-        if len(device_detail_data):
-            logger.error("[14] 设备日志分析失败,没有获取到视频信息")
-            return False
-
         # 加入vid
         aid = device_detail_data['aid']
         sid = device_detail_data['sid']
