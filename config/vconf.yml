@@ -10,7 +10,7 @@ global:
 
 log:
   level: debug
-  console_print: true
+  console_print: false
   dir: /Data/webapps/video_log/
   download: video_%Y-%m-%d.log
   device: device.log
