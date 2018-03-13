@@ -146,7 +146,7 @@ class download(object):
         :param vid:
         :return:
         '''
-
+        logger.debug("[38] 获取到待解析URL地址:%s  vid:%s" % (url,vid))
         retry_times = 10
         while retry_times < 10:
             current_retry_time = retry_times * -1 + retry_times +1
@@ -169,9 +169,6 @@ class download(object):
             time.sleep(10)
         return False
 
-
-
-
     def runDownload(self):
         video_data = self.getLastDeviceLog()
         if not video_data:
@@ -181,7 +178,7 @@ class download(object):
         if not download_url:
             update_sql = "UPDATE video_info SET status='4' WHERE vid='%s'" % video_data['vid']
             self.mysql.update(update_sql)
-            logger.debug("[25] 更新视频记录为下载失败")
+            logger.debug("[37] 更新视频记录为下载失败")
             return False
 
         select_sql = "SELECT * FROM video_info WHERE vid=%s" % video_data['vid']
