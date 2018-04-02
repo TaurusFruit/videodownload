@@ -14,10 +14,10 @@ class download(object):
         self.sd = ServerData()          # 服务器数据交互
         self.device_log_file = os.path.join(conf('log','dir'),conf('log','device'))
         self.device_ip_address = conf('global','device_ip')
-        self.video_save_path = conf('video','root')
-        self.contact_mail = conf('monitor','mail')
-        self.img_save_path = conf('image','root')
-        self.ffmpeg_log_path = conf('log','ffmpeg')
+        self.video_save_path = conf('global','video_dir')
+        self.contact_mail = conf('connect','mail')
+        self.img_save_path = conf('global','video_dir')
+        self.ffmpeg_log_path = conf('log','ffmpeg_dir')
 
     def demoStart(self):
         logger.debug("[10] 正在启动demo程序")
