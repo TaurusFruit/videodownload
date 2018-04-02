@@ -188,7 +188,7 @@ class download(object):
         video_sid = video_data['sid']
         video_vid = video_data['vid']
 
-        if s_db_data:
+        if s_db_data[0]['name'] != "null" and s_db_data[0]['path'] != "null":
             video_name = s_db_data[0]['name']
             video_path = s_db_data[0]['path']
         else:
