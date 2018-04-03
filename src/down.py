@@ -173,7 +173,7 @@ class download(object):
                'Host': 'pan.baidu.com',
                'Upgrade-Insecure-Requests': '1',
                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'}
-                            html = requests.get(url, headers=headers, allow_redirects=False)
+                            html = requests.get(download_url, headers=headers, allow_redirects=False)
                             u = html.headers['Location']
                             logger.info("[21] 解析下载地址成功,vid:%s" % vid)
                             logger.debug("[22] 解析下载地址成功,地址为:%s" % u)
