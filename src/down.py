@@ -24,7 +24,7 @@ class download(object):
         start_cmd = "adb shell am start -n com.demo.wl.jumpdemonew/com.demo.wl.jumpdemonew.MainActivity"
         os.system(start_cmd)
         logger.debug("[11] 正在启动logcat程序")
-        os.system("timeout 5 adb logcat -v time|grep 'play_url' > %s " % self.device_log_file)
+        os.system("timeout 25 adb logcat -v time|grep 'play_url' > %s " % self.device_log_file)
 
     def demoStop(self):
         logger.debug("[12] 正在关闭demo程序")
