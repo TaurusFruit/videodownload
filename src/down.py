@@ -166,9 +166,18 @@ class download(object):
                     if each.startswith("http://"):
                         try:
                             download_url = each.split("'")[1].split("?")[0]
+                            headers = {'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+               'Accept-Encoding': 'gzip, deflate, sdch, br',
+               'Accept-Language': 'zh-CN,zh;q=0.8',
+               'Connection': 'keep-alive',
+               'Host': 'pan.baidu.com',
+               'Upgrade-Insecure-Requests': '1',
+               'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'}
+                            html = requests.get(url, headers=headers, allow_redirects=False)
+                            u = html.headers['Location']
                             logger.info("[21] 解析下载地址成功,vid:%s" % vid)
-                            logger.debug("[22] 解析下载地址成功,地址为:%s" % download_url)
-                            return download_url
+                            logger.debug("[22] 解析下载地址成功,地址为:%s" % u)
+                            return u
                         except:
                             return False
                 else:
