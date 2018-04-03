@@ -135,10 +135,11 @@ class download(object):
                     return False
         else:
             device_detail_data['url'] = pymysql.escape_string(device_detail_data['url'])
-            insert_sql = "INSERT INTO video_info(vid,path,status,name,aid,sid,sname) " \
-                         "VALUES ('%s','%s','%s','%s','%s','%s','%s')" % (device_detail_data['vid'],'null',
+            device_detail_data['sname'] = pymysql.escape_string(device_detail_data['sname'])
+            insert_sql = "INSERT INTO video_info(vid,path,status,name,aid,sid,url,sname) " \
+                         "VALUES ('%s','%s','%s','%s','%s','%s','%s','%s')" % (device_detail_data['vid'],'null',
                                                                                '1','null',device_detail_data['aid'],
-                                                                               device_detail_data['sid'],
+                                                                               device_detail_data['sid'],device_detail_data['url'],
                                                                                device_detail_data['sname'])
             if self.mysql.insert(insert_sql):
                 return True
