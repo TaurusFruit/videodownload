@@ -222,9 +222,9 @@ class download(object):
         cmd = 'ffmpeg -i "%s" -absf aac_adtstoasc -acodec copy -vcodec copy -f mp4 "%s" > %s 2>&1' % (url, save_name, ffmpeg_log_name)
         post_data = {'aid': aid, 'sid': sid, 'path': path, 'name': '%s/%s' % (path, name), 'status': '1'}
         self.sd.postData(post_data)
-        logger.debug("[27] 下载命令执行完毕,返回值:%s" % str(cmd_status))
-        cmd_status = os.system(cmd)
         logger.debug("[27] 正在执行下载命令,命令内容为:%s" % cmd)
+        cmd_status = os.system(cmd)
+        logger.debug("[27] 下载命令执行完毕,返回值:%s" % str(cmd_status))
         file_data = self.getFileData(save_name,vid)
 
         if not file_data or str(cmd_status) != "0":
