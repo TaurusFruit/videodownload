@@ -164,10 +164,13 @@ class download(object):
                 html_res_slice = html_res.text.split()
                 for each in html_res_slice:
                     if each.startswith("http://"):
-                        download_url = each
-                        logger.info("[21] 解析下载地址成功,vid:%s" % vid)
-                        logger.debug("[22] 解析下载地址成功,地址为:%s" % url)
-                        return download_url.replace("127.0.0.1",self.device_ip_address)
+                        try:
+                            download_url = each.split("'")[1].split("?")[0]
+                            logger.info("[21] 解析下载地址成功,vid:%s" % vid)
+                            logger.debug("[22] 解析下载地址成功,地址为:%s" % download_url)
+                            return download_url
+                        except:
+                            return False
                 else:
                     logger.error("[23] 解析视频地址失败 vid:%s url:%s" % (vid,url))
                     retry_times -= 1
