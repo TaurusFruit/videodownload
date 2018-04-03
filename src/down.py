@@ -123,6 +123,9 @@ class download(object):
                 updae_sql = "UPDATE video_info SET status = '1' WHERE vid = '%s'" % device_detail_data['vid']
                 if self.mysql.update(updae_sql):
                     logger.info("[19] 更新数据为新下载成功,vid:%s" % device_detail_data['vid'])
+                    del_file = os.path.join("/Data/webapps/video/",name)
+                    os.system("rm -f %s"% del_file)
+                    logger.info("[19] 删除旧视频文件成功")
                     return True
                 else:
                     logger.error("[20] 更新数据为新下载失败 vid:%s" % device_detail_data['vid'])
@@ -220,8 +223,12 @@ class download(object):
         file_data = self.getFileData(save_name,vid)
 
         if not file_data or cmd_status != '0':
+
             sql = "UPDATE video_info SET status = '5' WHERE vid = '%s'" % vid
             self.mysql.update(sql)
+            post_data = {'aid': aid, 'sid': sid, 'path': path, 'name': '%s/%s' % (path, name), 'status': '0'}
+            self.sd.postData(post_data)
+
             logger.error("[31] 更新视频状态为下载失败 vid:%s" % vid)
             return False
         else:
