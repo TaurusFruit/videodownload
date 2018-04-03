@@ -102,6 +102,9 @@ class download(object):
             return device_detail_data
         else:
             logger.error("[17] 设备日志&服务器数据匹配失败")
+            cmd = "adb shell am force-stop com.konka.voole.video"
+            os.system(cmd)
+            logger.error("[17] 正在关闭小K程序")
             return False
 
     def checkVideoStatus(self,device_detail_data):
