@@ -64,7 +64,9 @@ class Mysql(object):
             'port':conf('db','port'),
             'user':conf('db','user'),
             'passwd':conf('db','passwd'),
-            'db':conf('db','name')
+            'db':conf('db','name'),
+            'charset':'utf8'
+
         }
 
     def __conn(self):
