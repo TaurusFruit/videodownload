@@ -222,6 +222,7 @@ class download(object):
         post_data = {'aid': aid, 'sid': sid, 'path': path, 'name': '%s/%s' % (path, name), 'status': '1'}
         self.sd.postData(post_data)
         cmd_status = os.system(cmd)
+        logger.debug("[27] 正在执行下载命令,命令内容为:%s" % cmd)
         logger.debug("[27] 下载命令执行完毕,返回值:%s" % str(cmd_status))
         file_data = self.getFileData(save_name,vid)
 

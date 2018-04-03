@@ -165,7 +165,7 @@ class ServerData(object):
         try:
             res = requests.post(self.post_data_url,data=data)
             logger.debug("数据发送成功 : %s" % str(data))
-            logger.debug("服务器返回数据: %s" % str(data))
+            logger.debug("服务器返回数据: %s" % res.json())
             return True
         except:
             logger.error("数据发送失败: %s" % str(data))
