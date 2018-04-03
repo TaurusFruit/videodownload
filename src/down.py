@@ -227,7 +227,7 @@ class download(object):
         logger.debug("[27] 下载命令执行完毕,返回值:%s" % str(cmd_status))
         file_data = self.getFileData(save_name,vid)
 
-        if not file_data or cmd_status != '0':
+        if not file_data or str(cmd_status) != "0":
 
             sql = "UPDATE video_info SET status = '5' WHERE vid = '%s'" % vid
             self.mysql.update(sql)
@@ -320,7 +320,7 @@ class download(object):
             sql = "UPDATE video_info SET size = '%s' WHERE vid = '%s'" % (str(os.path.getsize(name)), vid)
             self.mysql.update(sql)
             logger.debug("[29] 获取视频文件信息成功,文件大小:%s%s" % (file_size, file_size_unit[file_size_bit]))
-            return (file_size, file_size_unit[file_size_bit])
+            return file_size
         else:
             logger.debug("[30] 获取视频文件信息失败,文件不存在")
             return False
