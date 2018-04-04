@@ -275,6 +275,7 @@ class download(object):
                 return False
             else:
                 self.getFileData(video_save_name,video_vid)
+                self.savePic(video_save_name,video_path,video_name,video_vid)
                 sql = "UPDATE video_info SET status = '2' WHERE vid = '%s'" % video_vid
                 self.mysql.update(sql)
                 logger.info("[7] wget 1905视频下载完成 vid:%s" % video_vid)
