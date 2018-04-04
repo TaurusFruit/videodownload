@@ -82,11 +82,16 @@ class download(object):
             logger.error("[2] 分析日志完成,没有获取到视频信息")
             return False
 
+        if len(device_detail_data) == 1:    # 1905日志 aid/sid 从服务器端获取
+            server_data = self.sd.getData()
+            device_detail_data['aid'] = server_data.pop('aid',"")
+            device_detail_data['sid'] = server_data.pop('sid',"")
+            device_detail_data['vid'] = device_detail_data['aid'] + device_detail_data['sid']
+            device_detail_data['type'] = "1905"
+            return device_detail_data
+
         # 加入vid
-        aid = device_detail_data['aid']
-        sid = device_detail_data['sid']
-        vid = aid + sid
-        device_detail_data['vid'] = vid
+        device_detail_data['vid'] = device_detail_data['aid'] + device_detail_data['sid']
         url = device_detail_data['url']
         device_detail_data['url'] = url.replace('127.0.0.1',self.device_ip_address)
 
@@ -222,22 +227,16 @@ class download(object):
 
     def runDownload(self):
         video_data = self.getLastDeviceLog()
-        if not video_data:
-            return False
+        if not video_data:return False
 
-        download_url = self.getDownloadUrl(video_data['url'],video_data['vid'])
-        if not download_url:
-            update_sql = "UPDATE video_info SET status='4' WHERE vid='%s'" % video_data['vid']
-            self.mysql.update(update_sql)
-            logger.debug("[6] 没有解析到下载地址,更新视频记录为下载失败")
-            return False
+        video_aid = video_data.pop('aid',"")
+        video_sid = video_data.pop('sid',"")
+        video_vid = video_data.pop('vid',"")
+        video_url = video_data.pop("url","")
 
-        select_sql = "SELECT * FROM video_info WHERE vid=%s" % video_data['vid']
+        #判断是否需要新生成文件名
+        select_sql = "SELECT * FROM video_info WHERE vid=%s" % video_vid
         s_db_data = self.mysql.select(select_sql)
-        video_aid = video_data['aid']
-        video_sid = video_data['sid']
-        video_vid = video_data['vid']
-
         if s_db_data[0]['name'] != "null" and s_db_data[0]['path'] != "null":
             video_name = s_db_data[0]['name']
             video_path = s_db_data[0]['path']
@@ -246,15 +245,36 @@ class download(object):
             video_path = str(datetime.datetime.now().strftime('/%Y/%m/%d'))
             update_sql = "UPDATE video_info SET name = '%s',path = '%s' WHERE vid = '%s'" % (video_name, video_path, video_vid)
             self.mysql.update(update_sql)
-
+        # 生成服务器存放视频绝对路径
         video_dir_path = os.path.join(self.video_save_path, video_path.lstrip('/'))
-        if not os.path.isdir(video_dir_path):
-            os.system('mkdir -p %s' % video_dir_path)
         video_save_name = os.path.join(video_dir_path, video_name)
-        if not self.DownloadVideo(video_vid,download_url,video_aid,video_sid,video_path,video_name,video_save_name):
-            return False
-        return True
+        if not os.path.isdir(video_dir_path):os.system('mkdir -p %s' % video_dir_path)
 
+        #判断视频地址类型
+        if video_data.pop("type",None) != "1905":   # 非1905
+            download_url = self.getDownloadUrl(video_url,video_vid)
+            if not download_url:
+                update_sql = "UPDATE video_info SET status='4' WHERE vid='%s'" % video_vid
+                self.mysql.update(update_sql)
+                logger.debug("[6] 没有解析到下载地址,更新视频记录为下载失败")
+                return False
+            else:
+                 return False if not self.DownloadVideo(video_vid,download_url,video_aid,video_sid,video_path,video_name,video_save_name) else True
+        else:   # 1905地址
+            cmd = "wget %s -O %s" % (video_url,video_save_name)
+            cmd_status = os.popen(cmd)
+            if cmd_status != 0:
+                update_sql = "UPDATE video_info SET status='4' WHERE vid='%s'" % video_vid
+                self.mysql.update(update_sql)
+                logger.debug("[6] wget 1905视频地址失败")
+                return False
+            else:
+                sql = "UPDATE video_info SET status = '2' WHERE vid = '%s'" % video_vid
+                self.mysql.update(sql)
+                logger.info("[6] wget 1905视频下载完成 vid:%s" % video_vid)
+                post_data = {'aid': video_aid, 'sid': video_sid, 'path': video_path, 'name': '%s/%s' % (video_path, video_name), 'status': '2'}
+                self.sd.postData(post_data)
+                return True
 
     def DownloadVideo(self,vid,url,aid,sid,path,name,save_name):
         sql = "UPDATE video_info SET status = 9 WHERE vid = '%s' " % vid
