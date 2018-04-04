@@ -256,22 +256,23 @@ class download(object):
             if not download_url:
                 update_sql = "UPDATE video_info SET status='4' WHERE vid='%s'" % video_vid
                 self.mysql.update(update_sql)
-                logger.debug("[6] 没有解析到下载地址,更新视频记录为下载失败")
+                logger.debug("[7] 没有解析到下载地址,更新视频记录为下载失败")
                 return False
             else:
                  return False if not self.DownloadVideo(video_vid,download_url,video_aid,video_sid,video_path,video_name,video_save_name) else True
         else:   # 1905地址
             cmd = "wget %s -O %s" % (video_url,video_save_name)
+            logger.debug("[7] 正在下载1905视频,地址命令为:%s" % cmd)
             cmd_status = os.popen(cmd)
             if cmd_status != 0:
                 update_sql = "UPDATE video_info SET status='4' WHERE vid='%s'" % video_vid
                 self.mysql.update(update_sql)
-                logger.debug("[6] wget 1905视频地址失败")
+                logger.debug("[7] wget 1905视频地址失败,命令状态码为:%s" % cmd_status)
                 return False
             else:
                 sql = "UPDATE video_info SET status = '2' WHERE vid = '%s'" % video_vid
                 self.mysql.update(sql)
-                logger.info("[6] wget 1905视频下载完成 vid:%s" % video_vid)
+                logger.info("[7] wget 1905视频下载完成 vid:%s" % video_vid)
                 post_data = {'aid': video_aid, 'sid': video_sid, 'path': video_path, 'name': '%s/%s' % (video_path, video_name), 'status': '2'}
                 self.sd.postData(post_data)
                 return True
@@ -313,7 +314,7 @@ class download(object):
                     self.sd.postData(post_data)
                     return True
             except:
-                logger.error("[34] 获取视频信息失败 vid:%s" % vid)
+                logger.error("[6] 获取视频信息失败 vid:%s" % vid)
             sql = "UPDATE video_info SET status = '2' WHERE vid = '%s'" % vid
             self.mysql.update(sql)
             logger.info("[6] 视频下载完成 vid:%s" % vid)
