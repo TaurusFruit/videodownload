@@ -212,9 +212,11 @@ class download(object):
                 else:
                     logger.error("[5] 解析视频地址失败 vid:%s url:%s" % (vid,url))
                     retry_times -= 1
+                    try_time+=1
             except:
                 logger.error("[5] 解析视频地址出错, vid:%s url:%s" % (vid,url))
                 retry_times -= 1
+                try_time+=1
             time.sleep(10)
         return False
 
