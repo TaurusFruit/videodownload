@@ -16,7 +16,7 @@ class download(object):
         self.device_ip_address = conf('global','device_ip')
         self.video_save_path = conf('global','video_dir')
         self.contact_mail = conf('connect','mail')
-        self.img_save_path = conf('global','video_dir')
+        self.img_save_path = conf('global','image_dir')
         self.ffmpeg_log_path = conf('log','ffmpeg_dir')
 
     def demoStart(self):
