@@ -263,9 +263,9 @@ class download(object):
         else:   # 1905地址
             cmd = "wget '%s' -O %s" % (video_url,video_save_name)
             logger.debug("[7] 正在下载1905视频,地址命令为:%s" % cmd)
-            cmd_status = os.system(cmd)
             post_data = {'aid': video_aid, 'sid': video_sid, 'path': video_path, 'name': '%s/%s' % (video_path, video_name), 'status': '1'}
             self.sd.postData(post_data)
+            cmd_status = os.system(cmd)
             if cmd_status != 0:
                 update_sql = "UPDATE video_info SET status='4' WHERE vid='%s'" % video_vid
                 self.mysql.update(update_sql)
