@@ -86,9 +86,8 @@ class download(object):
             server_data = self.sd.getData()
             device_detail_data['aid'] = server_data.pop('aid',"")
             device_detail_data['sid'] = server_data.pop('sid',"")
-            device_detail_data['vid'] = device_detail_data['aid'] + device_detail_data['sid']
             device_detail_data['type'] = "1905"
-            return device_detail_data
+
 
         # 加入vid
         device_detail_data['vid'] = device_detail_data['aid'] + device_detail_data['sid']
@@ -237,6 +236,7 @@ class download(object):
         #判断是否需要新生成文件名
         select_sql = "SELECT * FROM video_info WHERE vid=%s" % video_vid
         s_db_data = self.mysql.select(select_sql)
+
         if s_db_data[0]['name'] != "null" and s_db_data[0]['path'] != "null":
             video_name = s_db_data[0]['name']
             video_path = s_db_data[0]['path']
