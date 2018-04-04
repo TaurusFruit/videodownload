@@ -149,35 +149,43 @@ class download(object):
     def getDownloadUrl(self,url,vid):
         '''
         通过小K日志地址 解析下载地址
+        1. 通过url 获取 原始m3u地址url2
+        2. 通过url2 获取 cdn地址 url3
+        3. 通过url3 获取 302地址url4
         :param url:
         :param vid:
         :return:
         '''
         logger.debug("[38] 获取到待解析URL地址:%s  vid:%s" % (url,vid))
         logger.debug("[38] 正在解析地址...")
-        retry_times = 10
-        while retry_times > 0:
-            current_retry_time = retry_times * -1 + retry_times +1
-            logger.debug("[25] 正在进行第%d次解析" % current_retry_time)
-            try:
-                html_res = requests.get(url,timeout=10)
-                html_res_slice = html_res.text.split()
-                for each in html_res_slice:
-                    if each.startswith("http://"):
-                        try:
-                            download_url = each.split("'")[1].split("?")[0]
-                            headers = {'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+        retry_times = 20
+        try_time = 1
+        headers = {'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
                'Accept-Encoding': 'gzip, deflate, sdch, br',
                'Accept-Language': 'zh-CN,zh;q=0.8',
                'Connection': 'keep-alive',
                'Host': 'pan.baidu.com',
                'Upgrade-Insecure-Requests': '1',
                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'}
-                            html = requests.get(download_url, headers=headers, allow_redirects=False)
-                            u = html.headers['Location']
+        while retry_times > 0:
+            logger.debug("[22] 正在进行第[%s]次尝试解析"% try_time)
+            try:
+                html_res = requests.get(url,timeout=10,headers=headers) # 获取原始m3u地址
+                html_res_slice = html_res.text.split()
+                for each in html_res_slice:
+                    if each.startswith("http://"):
+                        try:
+                            url2 = each         # 通过response获取m3u地址
+                            logger.debug("[22] 成功解析原始m3u地址:%s" %url2)
+                            url3 = url2.split("'")[1].split("?")[0]
+                            logger.debug("[22] 成功获取CDN地址:%s" % url3)
+
+                            html = requests.get(url3, headers=headers, allow_redirects=False)   # 通过url3 获取302地址url4
+                            url4 = html.headers['Location']
+                            logger.debug("[22] 成功获取最终下载地址:%s" % url4)
                             logger.info("[21] 解析下载地址成功,vid:%s" % vid)
-                            logger.debug("[22] 解析下载地址成功,地址为:%s" % u)
-                            return u
+
+                            return url4
                         except:
                             return False
                 else:
