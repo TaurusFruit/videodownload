@@ -31,7 +31,7 @@ class download(object):
         os.system("adb shell am force-stop com.demo.wl.jumpdemonew")
         logger.debug("[1] 正在关闭小K程序")
         os.system( "adb shell am force-stop com.konka.voole.video")
-        time.sleep(30)
+        time.sleep(10)
 
 
     def getLastDeviceLog(self):
@@ -54,7 +54,7 @@ class download(object):
         else:
             logger.error("[2] 片源不存在,返回服务器下载失败")
             server_current_data = self.sd.getData()
-            post_data = {"aid":server_current_data['aid'],"sid":server_current_data['sid'],"path":"null","name":"null"}
+            post_data = {"aid":server_current_data['aid'],"sid":server_current_data['sid'],"path":"null","name":"null","status":"0"}
             self.sd.postData(post_data)
             return False
 
