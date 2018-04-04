@@ -24,7 +24,7 @@ class download(object):
         start_cmd = "adb shell am start -n com.demo.wl.jumpdemonew/com.demo.wl.jumpdemonew.MainActivity"
         os.system(start_cmd)
         logger.debug("[0] 正在启动logcat程序")
-        os.system("timeout 25 adb logcat -v time|grep 'play_url' > %s " % self.device_log_file)
+        os.system("timeout 10 adb logcat -v time|grep 'play_url' > %s " % self.device_log_file)
 
     def demoStop(self):
         logger.debug("[1] 正在关闭demo程序")
@@ -36,8 +36,8 @@ class download(object):
 
     def getLastDeviceLog(self):
         self.demoStart()    # 启动 demo 程序,记录日志
-        #进行10次读取文件尝试,如果一直为空,判断为片源不存在,返回服务器下载错误
-        retry_time = 10
+        #进行5次读取文件尝试,如果一直为空,判断为片源不存在,返回服务器下载错误
+        retry_time = 5
         try_time = 1
         while retry_time > 0:
             logger.debug("[2] 正在进行第%s次尝试读取日志文件" % try_time)
