@@ -6,7 +6,6 @@ import time
 class transcoding(object):
     def __init__(self):
         self.mysql = Mysql()
-        self.logger = log()
         self.conf = conf()
         self.postData = ServerData()
 
@@ -21,8 +20,8 @@ class transcoding(object):
         if not db_res:
             return False
         else:
-            self.logger.info("[001] 获取转码列表成功，共计 %s 部视频需要转码" % (str(len(db_res))))
-        return db_res
+            logger.info("[001] 获取转码列表成功，共计 %s 部视频需要转码" % (str(len(db_res))))
+            return db_res
 
     def transCoding(self):
         trans_list = self.getTransList()
@@ -36,33 +35,33 @@ class transcoding(object):
             file_path = os.path.join(dir_path, each_video['name'])
             temp_path = os.path.join(dir_path, "tmp_%s" % each_video['name'])
             cmd = "ffmpeg -i %s -strict -2 %s >> %s/logs/trans.log 2>&1" % (file_path, temp_path,conf('log','root'))
-            self.logger.debug("[002] " + cmd)
+            logger.debug("[002] " + cmd)
             update_sql = "UPDATE video_info SET status = 3 WHERE vid = '%s' " % vid
             if self.mysql.update(update_sql):
-                self.logger.info("[003] ID: %s 开始转码" % vid)
+                logger.info("[003] ID: %s 开始转码" % vid)
                 sql = "UPDATE video_info SET status = 6 WHERE vid = '%s' " % vid
                 self.mysql.update(sql)
                 cmd_status = os.system(cmd)
                 if cmd_status == 0:
-                    self.logger.info("[004] ID: %s 转码成功" % vid)
+                    logger.info("[004] ID: %s 转码成功" % vid)
                     os.popen('echo y |mv %s %s' % (temp_path, file_path))
                     sql = "UPDATE video_info SET status = 2 WHERE vid = '%s' " % vid
                     post_data = {'aid': aid, 'sid': sid, 'path': each_video['path'],
                                  'name': "%s/%s" % (each_video['path'], each_video['name']), 'status': '2'}
                 else:
-                    self.logger.error("[005] ID: %s 转码失败,状态码 %s" % (vid, cmd_status))
+                    logger.error("[005] ID: %s 转码失败,状态码 %s" % (vid, cmd_status))
                     sql = "UPDATE video_info SET status = 8 WHERE vid = '%s' " % vid
                     post_data = {'aid': aid, 'sid': sid, 'path': each_video['path'],
                                  'name': "%s/%s" % (each_video['path'], each_video['name']), 'status': '3'}
                 self.mysql.update(sql)
                 try:
                     req = self.postData.postData(post_data)
-                    self.logger.debug(("[006] ID: %s 数据发送成功 %s" % (vid,post_data)))
-                    self.logger.debug("[007] ID: %s 服务器返回数据 %s" % str(req.json()))
+                    logger.debug(("[006] ID: %s 数据发送成功 %s" % (vid,post_data)))
+                    logger.debug("[007] ID: %s 服务器返回数据 %s" % str(req.json()))
                 except:
-                    self.logger.error("[008] ID: %s 数据发送失败 %s" % (vid, post_data), 3)
+                    logger.error("[008] ID: %s 数据发送失败 %s" % (vid, post_data), 3)
             else:
-                self.logger.error("[009] ID: %s 更改视频状态失败" % vid)
+                logger.error("[009] ID: %s 更改视频状态失败" % vid)
         return True
 
 if __name__ == '__main__':
