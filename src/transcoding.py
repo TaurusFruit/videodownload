@@ -54,12 +54,7 @@ class transcoding(object):
                     post_data = {'aid': aid, 'sid': sid, 'path': each_video['path'],
                                  'name': "%s/%s" % (each_video['path'], each_video['name']), 'status': '3'}
                 self.mysql.update(sql)
-                try:
-                    req = self.postData.postData(post_data)
-                    logger.debug(("[006] ID: %s 数据发送成功 %s" % (vid,post_data)))
-                    logger.debug("[007] ID: %s 服务器返回数据 %s" % str(req.json()))
-                except:
-                    logger.error("[008] ID: %s 数据发送失败 %s" % (vid, post_data), 3)
+                self.postData.postData(post_data)
             else:
                 logger.error("[009] ID: %s 更改视频状态失败" % vid)
         return True
