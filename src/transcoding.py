@@ -19,7 +19,7 @@ class transcoding(object):
         select_sql = "SELECT * FROM video_info WHERE status = 3"
         db_res = self.mysql.select(select_sql)
         if not db_res:
-            return True
+            return False
         else:
             self.logger.info("[001] 获取转码列表成功，共计 %s 部视频需要转码" % (str(len(db_res))))
         return db_res
