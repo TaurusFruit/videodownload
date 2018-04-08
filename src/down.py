@@ -57,7 +57,7 @@ class download(object):
             post_data = {"aid":server_current_data['aid'],"sid":server_current_data['sid'],"path":"null","name":"null","status":"0"}
             self.sd.postData(post_data)
             sql = "INSERT INTO video_info(vid,path,status,name,aid,sid,sname) " \
-                  "VALUES ('%s','%s','%s','%s','%s','%s','%s')" % (server_current_data['aid']+server_current_data['sid'],'null','4','null',server_current_data['aid'],
+                  "VALUES ('%s','%s','%s','%s','%s','%s','%s')" % (server_current_data['aid']+server_current_data['sid'],'null','10','null',server_current_data['aid'],
                                                                    server_current_data['sid'],server_current_data['sname'])
             self.mysql.insert(sql)
             return False
