@@ -72,5 +72,6 @@ def sendMail(**kwargs):
 if __name__ == "__main__":
     receivers = [
         "zhanglei@tansuotv.com",
+        "yantao@tansuotv.com"
     ]
     sendMail(receivers=receivers,msg=getData())
