@@ -3,7 +3,8 @@ from email.mime.text import MIMEText
 from email.utils import parseaddr,formataddr
 import smtplib
 from datetime import datetime,timedelta
-from basescr import Mysql
+# from basescr import Mysql
+import sys
 
 
 def getData():
@@ -53,8 +54,8 @@ def sendMail(**kwargs):
 
     msg_detail = kwargs.pop("msg","未获取到下载日报内容,请联系管理员")
 
-    from_addr = "dev_service@tansuotv.com"
-    password = "xx.=xx."
+    from_addr = kwargs.pop("s_addr")
+    password = kwargs.pop("s_pwd")
     smtp_server = "mail.tansuotv.com"
 
 
@@ -70,8 +71,9 @@ def sendMail(**kwargs):
 
 
 if __name__ == "__main__":
-    receivers = [
-        "zhanglei@tansuotv.com",
-        "yantao@tansuotv.com"
-    ]
-    sendMail(receivers=receivers,msg=getData())
+    if len(sys.argv) < 4:
+        print("Usage: python3 %s sender@hostname sender_password receivers1 receivers2" % sys.argv[0])
+        sys.exit(1)
+    s_addr,s_pwd = sys.argv[1:3]
+    receivers = sys.argv[3:]
+    sendMail(s_addr=s_addr,s_pwd=s_pwd,receivers=receivers,msg=getData())
