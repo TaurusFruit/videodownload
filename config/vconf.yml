@@ -9,7 +9,7 @@ global:
   device_ip: 10.20.40.214
 
 log:
-  level: debug
+  level: error
   console_print: false
   dir: /Data/webapps/video_log/
   download: video_%Y-%m-%d.log

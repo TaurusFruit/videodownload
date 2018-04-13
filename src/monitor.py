@@ -1,15 +1,9 @@
 #!/usr/bin/env python3
 
 import smtplib
-from email.mime.application import MIMEApplication
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
-from email.mime.base import MIMEBase
-from email.header import Header
 
 
-
-def sendMail(email,alert_info,file=None):
+def sendMail(emails,alert_info,file=None):
 	from email.mime.multipart import MIMEMultipart
 	from email.mime.text import MIMEText
 	from email.mime.application import MIMEApplication
@@ -17,7 +11,7 @@ def sendMail(email,alert_info,file=None):
 	username = "dev_service@tansuotv.com"
 	password = "xx.=xx."
 	sender = username
-	receivers = ",".join([email])
+	receivers = ",".join(emails)
 
 	msg = MIMEMultipart()
 	msg['Subject'] = 'video download error'
@@ -49,4 +43,9 @@ def sendMail(email,alert_info,file=None):
 
 
 if __name__ == '__main__':
-	sendMail('zhanglei@tansuotv.com','aaaa')
+	context = [
+		# 'zhanglei@tansuotv.com',
+		'190128084@qq.com'
+
+	]
+	sendMail(context,'aaaaaaaaaaaaa')

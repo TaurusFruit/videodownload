@@ -16,6 +16,7 @@ def conf(*args):
     :return:
     '''
     CONF_FILE = '/Data/webapps/videodownload/config/vconf.yml'
+    # CONF_FILE = "../config/vconf.yml"
     with open(CONF_FILE) as f:
         config_data = yaml.load(f)
     try:
