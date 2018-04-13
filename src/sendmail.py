@@ -61,7 +61,7 @@ def sendMail(**kwargs):
 
     msg = MIMEText(msg_detail, 'plain', 'utf-8')
     msg['From'] = formataddr(parseaddr('小K视频监控 <%s>' % from_addr))
-    msg["To"] = formataddr(parseaddr(to_addr))
+    msg["To"] = formataddr(parseaddr('管理员 <%s>' % to_addr))
     msg['Subject'] = Header('小K下载日报 - %s' % (datetime.now() + timedelta(days=-1)).strftime("%Y-%m-%d"), 'utf-8').encode()
 
     server = smtplib.SMTP(smtp_server, 25)
