@@ -141,7 +141,7 @@ class download(object):
         检查视频状态
         :return:
         '''
-        select_sql = "SELECT * FROM video_info WHERE vid=%s" % device_detail_data['vid']
+        select_sql = "SELECT * FROM video_info WHERE vid='%s'" % device_detail_data['vid']
         db_res = self.mysql.select(select_sql)
         if db_res:
             path = db_res[0]["path"]
