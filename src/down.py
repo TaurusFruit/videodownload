@@ -238,7 +238,7 @@ class download(object):
         video_url = video_data.pop("url","")
 
         #判断是否需要新生成文件名
-        select_sql = "SELECT * FROM video_info WHERE vid=%s" % video_vid
+        select_sql = "SELECT * FROM video_info WHERE vid='%s'" % video_vid
         s_db_data = self.mysql.select(select_sql)
 
         if s_db_data[0]['name'] != "null" and s_db_data[0]['path'] != "null":
