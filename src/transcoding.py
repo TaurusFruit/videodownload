@@ -6,9 +6,7 @@ import time
 class transcoding(object):
     def __init__(self):
         self.mysql = Mysql()
-        self.conf = conf()
         self.postData = ServerData()
-
 
     def getTransList(self):
         '''
@@ -25,16 +23,16 @@ class transcoding(object):
 
     def transCoding(self):
         trans_list = self.getTransList()
-        if  len(trans_list) <= 0 :return False
+        if  not trans_list :return False
 
         for each_video in trans_list:
             vid = each_video['vid']
             aid = each_video['aid']
             sid = each_video['sid']
-            dir_path = os.path.join(self.conf('global','root'), each_video['path'].lstrip('/'))
+            dir_path = os.path.join(conf('global','root'), each_video['path'].lstrip('/'))
             file_path = os.path.join(dir_path, each_video['name'])
             temp_path = os.path.join(dir_path, "tmp_%s" % each_video['name'])
-            cmd = "ffmpeg -i %s -strict -2 %s >> %s/logs/trans.log 2>&1" % (file_path, temp_path,conf('log','root'))
+            cmd = "ffmpeg -i %s -strict -2 %s >> %s/logs/trans.log 2>&1" % (file_path, temp_path,conf('log','dir'))
             logger.debug("[002] " + cmd)
             update_sql = "UPDATE video_info SET status = 3 WHERE vid = '%s' " % vid
             if self.mysql.update(update_sql):
