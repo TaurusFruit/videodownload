@@ -32,7 +32,7 @@ def getData():
         '7':"下载成功,正在转码",
         '8':"下载成功,转码失败",
         '9':"正在下载",
-        '10':"下载失败,未从小K获取到日志"
+        '10':"下载失败,片源不存在或播放失败,未从小K获取到日志"
     }
     data_string = "下载详情为:\n"+"".join(list(map(lambda x:"%s: \t%s部\n" % (status_map[x],status[x]),status)))
     return data_string
