@@ -54,6 +54,8 @@ class download(object):
         else:
             logger.error("[2] 片源不存在,返回服务器下载失败")
             server_current_data = self.sd.getData()
+            if not server_current_data:
+                return False
             post_data = {"aid":server_current_data['aid'],"sid":server_current_data['sid'],"path":"null","name":"null","status":"0"}
             self.sd.postData(post_data)
             sql = "INSERT INTO video_info(vid,path,status,name,aid,sid,sname) " \
